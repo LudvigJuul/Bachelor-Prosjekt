@@ -39,13 +39,15 @@ def add_user():
     db.session.commit()
     return jsonify(new_user.to_dict()), 201
 
-@app.route("/api/data")
+@app.route("/")
 def get_data():
     data = {"name": "Flask Backend", "version": "1.0"}
     return jsonify(data)
+
 
 # Kjør applikasjonen
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()  # Oppretter database-tabellen hvis den ikke finnes
     app.run(debug=True, host="127.0.0.1",port=5000)
+

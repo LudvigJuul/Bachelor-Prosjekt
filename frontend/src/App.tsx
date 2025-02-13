@@ -17,7 +17,7 @@ function App() {
   const [data, setData] = useState<ApiRespone | null>(null);
   
     useEffect(() => {
-      fetch("http://127.0.0.1:5000/api/data")
+      fetch("http://127.0.0.1:5000/")
         .then((response) => response.json())
         .then((data : ApiRespone) => setData(data));
     }, []);

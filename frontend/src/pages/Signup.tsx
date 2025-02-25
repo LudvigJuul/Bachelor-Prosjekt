@@ -1,56 +1,31 @@
 import { useState } from "react";
-
+import axios from "axios";
 
 function Signup() {
-    const [name, setName] = useState("");
-    const [organization, setOrganization] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    //add_user()?
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      await axios.post("http://127.0.0.1:5000/api/signup", { name, email, password });
+      alert("User registered successfully!");
+    } catch (error) {
+      console.error("Registration failed", error);
+      alert("Registration failed");
+    }
+  };
 
   return (
-    <div className="flex flex-col h-screen">
-      
-      <div className="flex flex-grow items-center justify-center">
-        <div className="bg-white p-8 shadow-lg rounded-md w-96">
-          <h2 className="text-lg font-bold mb-2">Name</h2>
-          <input
-            type="text"
-            placeholder="Name"
-            className="input-field"
-            onChange={(e) => setName(e.target.value)}
-          />
-
-          <h2 className="text-lg font-bold mt-4 mb-2">Organisation</h2>
-          <select
-            className="input-field"
-            onChange={(e) => setOrganization(e.target.value)}
-          >
-            <option>Company</option>
-            <option>Startup</option>
-            <option>Individual</option>
-          </select>
-
-          <h2 className="text-lg font-bold mt-4 mb-2">Email</h2>
-          <input
-            type="email"
-            placeholder="test@test.com"
-            className="input-field"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-          <h2 className="text-lg font-bold mt-4 mb-2">Password</h2>
-          <input
-            type="password"
-            placeholder="Password"
-            className="input-field"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button className="mt-4 w-full button-primary">Register account</button>
-        </div>
-      </div>
-
+    <div className="flex flex-col items-center p-4 min-h-screen bg-[#f5fffa]">
+      <h1 className="text-2xl font-bold mt-6">Register Account</h1>
+      <form onSubmit={handleSubmit} className="mt-4 bg-white p-6 shadow-md rounded-lg w-1/3">
+        <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="p-2 border rounded w-full mb-4" required />
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border rounded w-full mb-4" required />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="p-2 border rounded w-full mb-4" required />
+        <button type="submit" className="bg-[#ff69b4] text-white p-2 rounded w-full">Register</button>
+      </form>
     </div>
   );
 }

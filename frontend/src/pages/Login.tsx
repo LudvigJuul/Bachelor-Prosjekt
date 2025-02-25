@@ -1,53 +1,40 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-
+import Layout from "../components/Layout";
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-
-  const handleLogin = async (e: React.FormEvent) => {
+  
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://127.0.0.1:5000/api/login", { email, password });
-      console.log(response.data);
+      const { data } = await axios.post("http://127.0.0.1:5000/api/login", { email, password });
+      
+      localStorage.setItem("token", data.token);
+      alert("Login successful!");
+      
+      //Route bruker videre? eller til Dash?
+
     } catch (error) {
-      console.error("Login failed:", error);
+      console.error("Login failed", error);
+      alert("Invalid credentials");
     }
   };
 
   return (
-    <div className="flex flex-col h-screen">
-      
-      <div className="flex flex-grow items-center justify-center">
-        <div className="bg-white p-8 shadow-lg rounded-md w-96">
-          <h2 className="text-lg font-bold mb-4">Email</h2>
-          <input
-            type="email"
-            placeholder="test@test.com"
-            className="input-field"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+    <Layout>
 
-          <h2 className="text-lg font-bold mt-4 mb-2">Password</h2>
-          <input
-            type="password"
-            placeholder="Password"
-            className="input-field"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <div className="flex justify-between mt-4">
-            <button className="button-primary">Forgot password?</button>
-            <button type="submit" onClick={handleLogin} className="button-secondary">Sign in</button>
-          </div>
-
-          <button className="mt-4 w-full button-primary">Register account</button>
-        </div>
-      </div>
-      
+      <div className="flex flex-col items-center p-4 min-h-screen bg-[#f5fffa]">
+      <h1 className="text-2xl font-bold mt-6">Login</h1>
+      <form onSubmit={handleSubmit} className="mt-4 bg-white p-6 shadow-md rounded-lg w-1/3">
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border rounded w-full mb-4" required />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} className="p-2 border rounded w-full mb-4" required />
+        <button type="submit" className="bg-[#ff69b4] text-white p-2 rounded w-full">Login</button>
+      </form>
     </div>
+    </Layout>
+    
   );
 }
 

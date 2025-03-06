@@ -15,12 +15,12 @@ function Header() {
   };
 
   return (
-    <nav className="bg-[#002250] text-white py-4 px-6 flex justify-between items-center relative">
-      <img src={BravoLogo} alt="Bravo Logo" className="h-10" />
+    <nav className="bg-[#002250] text-white py-6.5 px-6 flex justify-between items-center relative">
+      <img src={BravoLogo} alt="Bravo Logo" className="h-19.5 px-6" />
       
       {!isAuthPage && (
         <div className="flex items-center gap-4">
-          <button onClick={handleLogout} className="bg-red-500 text-white px-4 py-2 rounded">Sign out</button>
+         
           <div onClick={() => setMenuOpen(!menuOpen)} className="text-pink-400 text-3xl cursor-pointer">☰</div>
         </div>
       )}

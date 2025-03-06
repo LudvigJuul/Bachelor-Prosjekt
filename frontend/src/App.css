@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@font-face {
+    font-family: 'SF Pro Display';
+    src: url(../fonts/sf-pro-display/SFPRODISPLAYBOLD.OTF) format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+
 
 
 /*

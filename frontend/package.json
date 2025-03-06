@@ -10,23 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@tailwindcss/vite": "^4.0.9",
-=======
-    "@tailwindcss/vite": "^4.0.6",
->>>>>>> f42929243589eb8c15aee358bb31fb590b61cfd0
     "@tanstack/react-query": "^5.66.9",
     "axios": "^1.7.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
     "react-router-dom": "^7.1.5",
-<<<<<<< HEAD
     "recharts": "^2.15.1",
     "tailwindcss": "^4.0.9"
-=======
-    "tailwindcss": "^4.0.6"
->>>>>>> f42929243589eb8c15aee358bb31fb590b61cfd0
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",

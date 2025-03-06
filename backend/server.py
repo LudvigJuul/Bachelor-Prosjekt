@@ -14,7 +14,7 @@ import jwt
 
 # OPTIONAL: If you're using a .env file to store environment variables,
 # uncomment the following lines after installing python-dotenv:
-#    pip install python-dotenv
+# pip install python-dotenv
 # from dotenv import load_dotenv
 # load_dotenv()
 

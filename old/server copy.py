@@ -34,7 +34,11 @@ class User(db.Model):
     password_hash = db.Column(db.String(255), nullable=False)
 
     def to_dict(self):
+<<<<<<< HEAD
         return {"id": self.id, "name": self.name, "email": self.email}
+=======
+        return {"id": self.id, "name": name, "email": self.email}
+>>>>>>> f42929243589eb8c15aee358bb31fb590b61cfd0
 
 # API-endepunkt for å hente alle brukere (kun for testing)
 @app.route("/api/users", methods=["GET"])

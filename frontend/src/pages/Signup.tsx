@@ -39,9 +39,3 @@ function Signup() {
 }
 
 export default Signup;
-
-{/* 
-  
-  server.py inneholder en funksjon som heter "add_user()" som tilsynelatende legger til brukere i databasen. Dette må knyttes opp her på en eller annen måte? Tror jeg. 
-  
-  */}

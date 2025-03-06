@@ -1,2 +1,2 @@
 # Bachelor-Prosjekt
-Bachelor prosjekt Høyskole Kristiania
+Bachelor prosjekt Høyskolen Kristiania

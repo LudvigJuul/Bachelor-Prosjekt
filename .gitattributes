@@ -1,0 +1,9 @@
+backend/apm-server-8.17.2-windows-x86_64/apm-server.exe filter=lfs diff=lfs merge=lfs -text
+backend/elasticsearch-8.17.2/jdk/lib/modules filter=lfs diff=lfs merge=lfs -text
+backend/elasticsearch-8.17.2/modules/x-pack-ml/platform/windows-x86_64/bin/torch_cpu.dll filter=lfs diff=lfs merge=lfs -text
+backend/apm-server-8.17.2-windows-x86_64 filter=lfs diff=lfs merge=lfs -text
+backend/elasticsearch-8.17.2 filter=lfs diff=lfs merge=lfs -text
+backend/apm-server-8.17.2-windows-x86_64 filter=lfs diff=lfs merge=lfs -text
+backend/elasticsearch-8.17.2 filter=lfs diff=lfs merge=lfs -text
+backend/apm-server-8.17.2-windows-x86_64/apm-server.exe filter=lfs diff=lfs merge=lfs -text
+backend/elasticsearch-8.17.2 filter=lfs diff=lfs merge=lfs -text

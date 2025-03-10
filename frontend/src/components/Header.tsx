@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import BravoLogo from "../assets/BravoLogoGronn-2.png";
+import {Menu, X, LogOut} from "lucide-react";
 
 
 function Header() {
@@ -20,20 +21,25 @@ function Header() {
       
       {!isAuthPage && (
         <div className="flex items-center gap-4">
-         
-          <div onClick={() => setMenuOpen(!menuOpen)} className="text-pink-400 text-3xl cursor-pointer">☰</div>
+          {/* Meny-knapp */}
+          <div onClick={() => setMenuOpen(!menuOpen)} className="text-[#ff75d1] hover:text-[#ffbae8] text-4xl cursor-pointer">
+            {menuOpen ? <X size={40}/> : <Menu size={40} />}
+          </div>
         </div>
       )}
       
       {/* Sidebar Menu */}
       {menuOpen && (
-        <div className="absolute right-4 top-16 bg-[#0D2A51] p-4 rounded-lg shadow-lg w-40">
-          <ul className="space-y-2">
-            <li><Link to="/dashboard" className={location.pathname === "/dashboard" ? "text-green-400" : "text-white"}>Home</Link></li>
-            <li><Link to="/profile" className={location.pathname === "/profile" ? "text-green-400" : "text-white"}>Profile</Link></li>
-            <li><Link to="/support" className={location.pathname === "/support" ? "text-green-400" : "text-white"}>Support</Link></li>
-            <li><Link to="/settings" className={location.pathname === "/settings" ? "text-green-400" : "text-white"}>Settings</Link></li>
-            <li><button onClick={handleLogout} className="text-red-400">Sign out</button></li>
+        <div className="absolute right-0 top-32.5 bg-[#002250] p-4 rounded-lg shadow-lg w-60 h-60 z-100">
+          <ul className="space-y-5 text-[#F5FDF9] font-normal font-sans">
+            <li><Link to="/dashboard" className={location.pathname === "/dashboard" ? "text-green-400" : ""}>Dashboard</Link></li>
+            <li><Link to="/profile" className={location.pathname === "/profile" ? "text-green-400" : ""}>Profile</Link></li>
+            <li><Link to="/support" className={location.pathname === "/support" ? "text-green-400" : ""}>Support</Link></li>
+            <li><Link to="/settings" className={location.pathname === "/settings" ? "text-green-400" : ""}>Settings</Link></li>
+            <li><button onClick={handleLogout} className="text-red-400 flex items-center gap-2">
+                  <LogOut size={20} />
+                    Sign out
+                </button></li>
           </ul>
         </div>
       )}

@@ -113,7 +113,8 @@ cluster.initial_master_nodes: ["DESKTOP-3GTEBD7"]
 
 # Allow HTTP API connections from anywhere
 # Connections are encrypted and require user authentication
-http.host: 0.0.0.0
+# http.host: 0.0.0.0
+http.host: 127.0.0.1
 
 # Allow other nodes to join the cluster from anywhere
 # Connections are encrypted and mutually authenticated

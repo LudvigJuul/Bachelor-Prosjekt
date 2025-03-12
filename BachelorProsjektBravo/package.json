@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "elastic-apm-node": "^4.11.0",
     "package-lock.json": "^1.0.0"
   }
 }

@@ -1,10 +1,12 @@
-import Layout from "../components/Layout";
+
 import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 import GridLayout from "react-grid-layout";
 import { useState, useEffect } from "react";
 import { X, Move, Scaling } from "lucide-react"; 
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
+import { Layout as GridLayoutType } from "react-grid-layout"; 
+import LayoutComponent from "../components/Layout"; 
 
 const allWidgets = [
   { id: "devices", name: "Status Devices" },
@@ -14,10 +16,10 @@ const allWidgets = [
 ];
 
 const initialLayout = [
-  { i: "devices", x: 0, y: 0, w: 1, h: 1, static: false },
-  { i: "usage", x: 1, y: 0, w: 1, h: 1, static: false },
-  { i: "ai", x: 1, y: 0, w: 1, h: 1, static: false},
-  { i: "activity", x: 0, y: 1, w: 2, h: 1, static: false },
+  { i: "devices", x: 3, y: 0, w: 3, h: 3, static: false },
+  { i: "usage", x: 0, y: 0, w: 3, h: 3, static: false },
+  { i: "ai", x: 0, y: 0, w: 3, h: 4, static: false},
+  { i: "activity", x:6 , y: 0, w: 3, h: 3, static: false },
 ];
 
 const COLORS = ["#ffbae8", "#29f185", "#002250"];
@@ -27,6 +29,7 @@ const dataPie = [
   { name: "Tablet", value: 20 },
   { name: "Mobile", value: 50 },
 ];
+
 const dataBar = [
   { name: "Landing", sales: 40 },
   { name: "01.01.25", sales: 50 },
@@ -51,19 +54,35 @@ function Dashboard() {
     setLayout((prevLayout) => prevLayout.filter((item) => item.i !== id));
   };
 
+  const findNextAvailablePosition = (layout: GridLayoutType[], widgetWidth: number = 3, cols: number = 10) => {
+    let occupied = [...layout].sort((a, b) => a.y - b.y || a.x - b.x);
+    let rowMap = new Array(cols).fill(0); // Holder høyden til hver kolonne
+  
+    occupied.forEach(({ x, y, w, h }) => {
+      for (let i = x; i < x + w; i++) {
+        rowMap[i] = Math.max(rowMap[i], y + h);
+      }
+    });
+  
+    // Finn første rad med nok plass til widgetWidth
+    for (let y = 0; ; y++) {
+      for (let x = 0; x <= cols - widgetWidth; x++) {
+        if (rowMap.slice(x, x + widgetWidth).every(height => height <= y)) {
+          return { x, y };
+        }
+      }
+    }
+  };
+
   const addWidget = (id: string) => {
     setWidgets((prevWidgets) => [...prevWidgets, id]);
-    setLayout((prevLayout) => [
-      ...prevLayout,
-      {
-        i: id,
-        x: 0,
-        y: 0,
-        w: id === "devices" ? 2 : 1, // Endre bredde basert på widget-type
-        h: id === "activity" ? 2 : 1, // Endre høyde basert på widget-type
-        static: false,
-      },
-    ]);
+
+    setLayout((prevLayout) => {
+      const cols = 10; // Antall kolonner
+      const widgetWidth = 3; // Standard widget bredde
+      const { x, y } = findNextAvailablePosition(prevLayout, widgetWidth, cols);
+      return [...prevLayout, { i: id, x, y, w: widgetWidth, h: 4, static: false }];
+    });
   };
 
   useEffect(() => {
@@ -77,9 +96,9 @@ function Dashboard() {
   }, []);
 
   return (
-    <Layout>
+    <LayoutComponent>
       {/* Header text */}
-      <div className="min-h-screen text-white p-6">
+      <div className="p-6">
         <h1 className="text-[#002250] text-3xl font-weight: 900; font-medium font-sans mb-4">Dashboard</h1>
 
         {/* Widget Meny */}
@@ -100,9 +119,10 @@ function Dashboard() {
         <GridLayout
           className="grid-layout"
           layout={layout}
-          cols={3}
-          rowHeight={gridHeight / 3} // Tilpass rad-høyde
+          cols={9}
+          rowHeight={gridHeight / 12} // Tilpass rad-høyde
           width={gridWidth} // Dynamisk bredde
+          style={{minHeight: "500px"}}
           onLayoutChange={(newLayout) => setLayout(newLayout.map(item => ({ ...item, static: false })))}
           isResizable={true}
           resizeHandles={["se"]}
@@ -111,14 +131,14 @@ function Dashboard() {
 
           {/* Status Devices Widget */}
           {widgets.includes("devices") && (
-            <div key="devices" className="bg-[#d3f6e6] p-4 rounded-lg shadow-lg relative">
+            <div key="devices" className="bg-[#10305B] p-4 rounded-lg shadow-lg relative">
               <button
                 className="absolute top-2 right-2 text-red-400 hover:text-red-600 no-drag"
                 onMouseDown={(event) => event.stopPropagation()}
                 onClick={(event) => {event.stopPropagation(); removeWidget("devices");}}>
                 <X size={20}/>
               </button>
-              <h2 className="text-[#002250] text-2xl  font-medium font-sans mb-4">Status Devices</h2>
+              <h2 className="text-[#50f49b] text-2xl  font-medium font-sans mb-4">Status Devices</h2>
               <div className="flex justify-between mt-4">
                 <div className="text-[#ffffff] text-1xl  font-medium font-sans mb-4 bg-[#ff75d1] p-4 rounded-lg">Active 13</div>
                 <div className="text-[#ffffff] text-1xl  font-medium font-sans mb-4 bg-[#29f185] p-4 rounded-lg">Inactive 30</div>
@@ -130,14 +150,14 @@ function Dashboard() {
 
           {/* Device Usage Widget */}
           {widgets.includes("usage") && (
-            <div key="usage" className="bg-[#002250] p-4 rounded-lg shadow-lg relative">
+            <div key="usage" className="bg-[#10305B] p-4 rounded-lg shadow-lg relative">
               <button
                 className="absolute top-2 right-2 text-red-400 hover:text-red-600 no-drag"
                 onMouseDown={(event) => event.stopPropagation()}
                 onClick={(event) => {event.stopPropagation(); removeWidget("usage");}}>
                 <X size={20}/>
               </button>
-              <h2 className="text-[#ffffff] text-2xl  font-medium font-sans mb-4">Device Usage</h2>
+              <h2 className="text-[#50f49b] text-2xl font-medium font-sans mb-4">Device Usage</h2>
               <PieChart width={300} height={300}>
                 <Pie data={dataPie} cx={100} cy={100} outerRadius={60} fill="#8884d8" dataKey="value">
                   {dataPie.map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>))}
@@ -150,14 +170,14 @@ function Dashboard() {
 
           {/* Activity Widget */}
           {widgets.includes("activity") && (
-            <div key="activity" className="bg-gradient-to-b from-[#002250] to-[#f6c5e8] p-4 rounded-lg shadow-lg relative">
+            <div key="activity" className="bg-[#10305B] p-4 rounded-lg shadow-lg relative">
               <button
                 className="absolute top-2 right-2 text-red-400 hover:text-red-600 no-drag"
                 onMouseDown={(event) => event.stopPropagation()}
                 onClick={(event) => {event.stopPropagation(); removeWidget("activity");}}>
                 <X size={20}/>
               </button>
-              <h2 className="text-[#ffffff] text-2xl  font-medium font-sans mb-4">Activity</h2>
+              <h2 className="text-[#50f49b] text-2xl  font-medium font-sans mb-4">Activity</h2>
               <BarChart width={300} height={200} data={dataBar}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="name" />
@@ -170,28 +190,55 @@ function Dashboard() {
             </div>
           )}
 
-          {/* AI Widget */}
-          {widgets.includes("ai") && (
-            <div key="ai" className="bg-[#f5f9ff] p-4 rounded-lg shadow-lg relative">
-              <button
-                className="absolute top-2 right-2 text-red-400 hover:text-red-600 no-drag"
-                onMouseDown={(event) => event.stopPropagation()}
-                onClick={(event) => {event.stopPropagation(); removeWidget("ai");}}>
-                <X size={20} />
-              </button>
-              <h2 className="text-[#002250] text-2xl  font-medium font-sans mb-4">AI</h2>
-              <PieChart width={300} height={300}>
-                <Pie data={dataPie} cx={100} cy={100} outerRadius={60} fill="#002250" dataKey="value">
-                  {aiWidget.map((entry, index) => (<Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>))}
-                </Pie>
-              </PieChart>
-              <div className="absolute bottom-2 right-2 text-gray-400"><Scaling size={16}/></div>
-              <div className="absolute bottom-2 left-2 text-gray-400"><Move size={16}/></div>
-            </div>
-          )}
+{/* AI Widget */}
+{widgets.includes("ai") && (
+  <div key="ai" className="bg-[#10305B] p-4 rounded-lg shadow-lg relative">
+    <button
+      className="absolute top-2 right-2 text-red-400 hover:text-red-600 no-drag"
+      onMouseDown={(event) => event.stopPropagation()}
+      onClick={(event) => {event.stopPropagation(); removeWidget("ai");}}
+    >
+      <X size={20} />
+    </button>
+    <h2 className="text-[#50f49b] text-2xl font-medium font-sans mb-4">AI</h2>
+
+    {/* Progress Circle */}
+    <div className="flex flex-col items-center">
+      <svg width="120" height="120" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="40" stroke="#e0e0e0" strokeWidth="10" fill="none" />
+        <circle
+          cx="50"
+          cy="50"
+          r="40"
+          stroke="#50f49b"
+          strokeWidth="10"
+          fill="none"
+          strokeDasharray="251.2"
+          strokeDashoffset="75"
+          strokeLinecap="round"
+          transform="rotate(-90 50 50)"
+        />
+        <text x="50" y="54" textAnchor="middle" fontSize="20" fill="#50f49b">70%</text>
+      </svg>
+      <p className="text-[#50f49b] font-medium mt-2">70% of issues resolved</p>
+    </div>
+
+    {/* Bullet Point List */}
+    <ul className="list-disc pl-6 mt-4 text-[#50f49b]">
+      <li>"Eksempel 1"</li>
+      <li>"Eksempel 2"</li>
+      <li>"Eksempel 3"</li>
+      <li>"Inshallah min vror"</li>
+    </ul>
+
+    <div className="absolute bottom-2 right-2 text-gray-400"><Scaling size={16}/></div>
+    <div className="absolute bottom-2 left-2 text-gray-400"><Move size={16}/></div>
+  </div>
+)}
+
         </GridLayout>
       </div>
-    </Layout>
+    </LayoutComponent>
   );
 }
 

@@ -9,6 +9,26 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import './index.css'
 import "tailwindcss";
 
+/* 
+//
+// 
+// 
+// 
+// HVIS DERE RØRER DENNE BITEN SÅ DREPER JEG DERE NULL KØDD EKTE SERR!
+*/
+
+import { init as initApm } from '@elastic/apm-rum';
+
+const apm = initApm({
+  serviceName: 'your-frontend-service-name',
+  serverUrl: 'http://localhost:8200',  // Replace with your APM Server URL
+  environment: 'production', // Or 'development', depending on your environment
+});
+
+/* 
+////////////////////////////////////////////
+*/
+
 const queryClient = new QueryClient();
 
 function App() {

@@ -24,7 +24,7 @@ function Login() {
 
   return (
     <Layout>
-      <div className="flex flex-col items-center p-4 min-h-screen bg-[#f5fffa]">
+      <div className="flex flex-col items-center p-4 bg-[#f5fffa]">
         <h1 className="text-2xl font-bold mt-6">Login</h1>
         <form onSubmit={handleSubmit} className="mt-4 bg-white p-6 shadow-md rounded-lg w-1/3">
           <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} className="p-2 border rounded w-full mb-4" required />

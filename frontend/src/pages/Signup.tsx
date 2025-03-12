@@ -22,7 +22,7 @@ function Signup() {
 
   return (
     <Layout>
-    <div className="flex flex-col items-center p-4 min-h-screen bg-[#f5fffa]">
+    <div className="flex flex-col items-center p-4 bg-[#f5fffa]">
       <h1 className="text-2xl font-bold mt-6">Register Account</h1>
       <form onSubmit={handleSubmit} className="mt-4 bg-white p-6 shadow-md rounded-lg w-1/3">
         <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} className="p-2 border rounded w-full mb-4" required />

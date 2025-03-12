@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "elastic-apm-node": "^4.11.0"
+  }
+}

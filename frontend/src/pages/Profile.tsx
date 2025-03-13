@@ -1,20 +1,13 @@
 import Layout from "../components/Layout";
 import { FaEnvelope, FaPhone, FaLinkedin } from "react-icons/fa";
-import { useEffect } from "react"
 
 function Profile() {
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = "auto";
-    }
-  })
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center min-h-screen bg-white text-[#10305B] p-6">
+      <div className="flex flex-col items-center justify-center text-[#10305B] p-6">
         
         {/* Profile Card */}
-        <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-lg border border-gray-200 mt-[-200px] ">
+        <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-lg border border-gray-200 ">
           {/* Avatar & Name */}
           <div className="flex items-center gap-4">
             <img

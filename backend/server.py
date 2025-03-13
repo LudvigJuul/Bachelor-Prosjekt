@@ -8,6 +8,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate  # <-- Added Flask-Migrate import
 from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
+from werkzeug.utils import secure_filename
 import jwt
 
 
@@ -40,6 +41,11 @@ class User(db.Model):
     name = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
+    company = db.Column(db.String(100), nullable=False)  
+    title = db.Column(db.String(100), nullable=False)  
+    phone = db.Column(db.String(20), nullable=False)  
+    profile_pic = db.Column(db.String(255), nullable=True)
+      
 
     def to_dict(self):
         """Return user data without exposing the password hash."""
@@ -47,7 +53,11 @@ class User(db.Model):
             "id": self.id,
             "name": self.name,
             "email": self.email,
-            "hashed_pass": self.password_hash #Fjern i etterkant! VELDIG SÅRBART!
+            "hashed_pass": self.password_hash, #Fjern i etterkant! VELDIG SÅRBART!
+            "company": self.company,
+            "title": self.title,
+            "phone": self.phone,
+            "profile_pic": self.profile_pic
         }
 
 # -----------------------------------------------------------------------------
@@ -107,13 +117,35 @@ def get_users(current_user):
 
 @app.route("/api/signup", methods=["POST"])
 def signup():
-    """Register a new user. Handles IntegrityError for duplicate emails."""
-    data = request.get_json()
-    if not data or "name" not in data or "email" not in data or "password" not in data:
-        return jsonify({"message": "Missing fields"}), 400
+    """Register a new user. Supports profile picture upload."""
+    
+    # Håndter filopplasting sikkert
+    profile_pic = request.files.get("profilePic")
+    filepath = None
+    UPLOAD_FOLDER = "./UPLOAD_FOLDER"
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
-    hashed_password = generate_password_hash(data["password"], method="pbkdf2:sha256")
-    new_user = User(name=data["name"], email=data["email"], password_hash=hashed_password)
+    if profile_pic and profile_pic.filename:
+        filename = secure_filename(profile_pic.filename)
+        filename = f"profile_{datetime.datetime.utcnow().timestamp()}_{filename}"
+        filepath = os.path.join(UPLOAD_FOLDER, filename)
+        profile_pic.save(filepath)
+
+    # Hent skjemadata
+    name = request.form.get("name")
+    email = request.form.get("email")
+    password = request.form.get("password")
+    company = request.form.get("company")
+    title = request.form.get("title")
+    phone = request.form.get("phone")
+
+    # Valider obligatoriske felt
+    if not name or not email or not password:
+        return jsonify({"message": "Missing required fields"}), 400
+
+    hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
+    new_user = User(name=name, email=email, password_hash=hashed_password, 
+                    company=company, title=title, phone=phone, profile_pic=filepath)
 
     try:
         db.session.add(new_user)
@@ -122,7 +154,8 @@ def signup():
         db.session.rollback()
         return jsonify({"message": "Email already in use"}), 400
 
-    return jsonify({"message": "User registered successfully!"}), 201
+    return jsonify({"message": "User registered successfully!", "profile_pic": filepath}), 201
+
 
 @app.route("/api/login", methods=["POST"])
 def login():

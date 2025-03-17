@@ -3,7 +3,7 @@ import { FaEnvelope, FaPhone } from "react-icons/fa";
 
 function Footer() {
   return (
-    <footer className="bg-[#0D2A51] text-white py-4 px-6 flex justify-between items-center mt-auto">
+    <footer className="bg-[#002250] text-white py-4 px-6 flex justify-between items-center mt-auto">
       <div className="flex items-center space-x-2">
         <FaEnvelope className="text-green-400" />
         <p className="text-green-400">Eksempel123@eksempel.test</p>

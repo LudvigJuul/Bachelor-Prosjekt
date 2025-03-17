@@ -2,6 +2,7 @@ import os
 import datetime
 from functools import wraps
 
+from flask import send_from_directory
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
@@ -10,6 +11,8 @@ from sqlalchemy.exc import IntegrityError
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import jwt
+
+
 
 
 
@@ -22,6 +25,8 @@ import jwt
 app = Flask(__name__)
 CORS(app)
 
+
+
 # Use an environment variable for the secret key, with a fallback if not set
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "fallback-secret")
 
@@ -29,6 +34,10 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "fallback-secret")
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(BASE_DIR, "database.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+
+UPLOAD_FOLDER = "./UPLOAD_FOLDER"
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)  # <-- Initialize Flask-Migrate
@@ -57,7 +66,7 @@ class User(db.Model):
             "company": self.company,
             "title": self.title,
             "phone": self.phone,
-            "profile_pic": self.profile_pic
+            "profile_pic": f"http://127.0.0.1:5000/uploads/{self.profile_pic.split(os.sep)[-1]}"
         }
 
 # -----------------------------------------------------------------------------
@@ -104,6 +113,7 @@ def debug_users():
     return jsonify([u.to_dict() for u in users])
 #Fjern denne i etterkant (kun for debugging)
 
+
 @app.route("/")
 def index():
     return jsonify({"name": "Flask Backend", "version": "1.0"})
@@ -115,14 +125,25 @@ def get_users(current_user):
     users = User.query.all()
     return jsonify([user.to_dict() for user in users])
 
+@app.route("/api/profile", methods=["GET"])
+@token_required
+def get_profile(current_user):
+    """Return profile information of the logged-in user."""
+    return jsonify(current_user.to_dict()), 200
+
+@app.route('/uploads/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
 @app.route("/api/signup", methods=["POST"])
+
+
 def signup():
     """Register a new user. Supports profile picture upload."""
     
     # Håndter filopplasting sikkert
     profile_pic = request.files.get("profilePic")
     filepath = None
-    UPLOAD_FOLDER = "./UPLOAD_FOLDER"
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
     if profile_pic and profile_pic.filename:

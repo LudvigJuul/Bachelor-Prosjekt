@@ -17,7 +17,7 @@ apm-server:
       #limit: 100
 
     # Define a shared secret token for authorizing agents using the "Bearer" authorization method.
-    #secret_token:
+    #secret_token: "123abc"
 
     # Allow anonymous access only for specified agents and/or services. This is primarily intended to allow
     # limited access for untrusted agents, such as Real User Monitoring.
@@ -127,8 +127,8 @@ apm-server:
   # Enable Real User Monitoring (RUM) Support. By default RUM is disabled.
   # RUM does not support token based authorization. Enabled RUM endpoints will not require any authorization
   # token configured for other endpoints.
-  #rum:
-    #enabled: false
+  rum:
+    enabled: true
 
     #-- General RUM settings
 
@@ -137,11 +137,11 @@ apm-server:
     # An origin is made of a protocol scheme, host and port, without the url path.
     # Allowed origins in this setting can have * to match anything (eg.: http://*.example.com)
     # If an item in the list is a single '*', everything will be allowed.
-    #allow_origins: ['*']
+    allow_origins: ['http://localhost:5173']
 
     # A list of Access-Control-Allow-Headers to allow RUM requests, in addition to "Content-Type",
     # "Content-Encoding", and "Accept"
-    #allow_headers: []
+    allow_headers: ['*']
 
     # Custom HTTP headers to add to RUM responses, e.g. for security policy compliance.
     #response_headers:

@@ -228,7 +228,7 @@ function Dashboard() {
       <li>"Eksempel 1"</li>
       <li>"Eksempel 2"</li>
       <li>"Eksempel 3"</li>
-      <li>"Inshallah min vror"</li>
+      <li>"Eksempel 4"</li>
     </ul>
 
     <div className="absolute bottom-2 right-2 text-gray-400"><Scaling size={16}/></div>

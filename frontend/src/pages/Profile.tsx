@@ -1,58 +1,72 @@
-import Layout from "../components/Layout";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import { FaEnvelope, FaPhone, FaLinkedin } from "react-icons/fa";
+import Layout from "../components/Layout";
 
 function Profile() {
+  const [user, setUser] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      const token = localStorage.getItem("token"); // Hent token fra localStorage
+      if (!token) {
+        console.error("No token found, redirecting...");
+        return;
+      }
+
+      try {
+        const response = await axios.get("http://127.0.0.1:5000/api/profile", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(response.data);
+        
+        setUser(response.data);
+      } catch (error) {
+        console.error("Failed to fetch profile", error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+  if (!user) return <p className="text-center text-gray-500">Loading profile...</p>;
+
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center text-[#10305B] p-6">
-        
-        {/* Profile Card */}
         <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-lg border border-gray-200 ">
-          {/* Avatar & Name */}
           <div className="flex items-center gap-4">
             <img
-              src="https://carboncostume.com/wordpress/wp-content/uploads/2021/12/orbponderingwizard-meme.jpg"
+              // src="..\backend\UPLOAD_FOLDER\profile_1741866937.56716_bombardino_crocodilo.jpg"
+              src={user.profile_pic}
               alt="User Avatar"
-              className="w-24 h-24 rounded-full border-4 border-[#10305B]"
+              className="w-100 h-100 rounded-full border-4 border-[#10305B]"
+              style={{ width: "150px", height: "150px", objectFit: "contain" }}
             />
             <div>
-              <h1 className="text-3xl font-bold">Test Bravo</h1>
-              <p className="text-lg text-gray-600">Software Engineer at Bravo AS</p>
+              <h1 className="text-3xl font-bold">{user.name}</h1>
+              <p className="text-lg text-gray-600">{user.title} at {user.company}</p>
             </div>
           </div>
 
-          {/* Work Details */}
           <div className="mt-6">
             <h2 className="text-xl font-semibold">About Me</h2>
             <p className="text-gray-700 mt-2">
-              Passionate software engineer with 5+ years of experience in full-stack 
-              development, specializing in modern web applications and scalable solutions.
+              {user.name} jobber hos {user.company} som {user.title}.
             </p>
           </div>
 
-          {/* Skills Section */}
-          <div className="mt-6">
-            <h2 className="text-xl font-semibold">Skills</h2>
-            <ul className="list-disc list-inside text-gray-700 mt-2">
-              <li>JavaScript (React, Node.js, TypeScript)</li>
-              <li>Swift & iOS Development</li>
-              <li>Database Management (PostgreSQL, Firebase)</li>
-              <li>Cloud & DevOps (AWS, Docker, CI/CD)</li>
-            </ul>
-          </div>
-
-          {/* Contact Section */}
           <div className="mt-6">
             <h2 className="text-xl font-semibold">Contact</h2>
             <div className="flex flex-col gap-2 mt-2 text-gray-700">
               <p className="flex items-center gap-2">
-                <FaEnvelope className="text-[#10305B]" /> deez.nuts@gmail.com
+                <FaEnvelope className="text-[#10305B]" /> {user.email}
               </p>
               <p className="flex items-center gap-2">
-                <FaPhone className="text-[#10305B]" /> +1 (123) 420-6969
+                <FaPhone className="text-[#10305B]" /> {user.phone || "N/A"}
               </p>
               <a href="#" className="flex items-center gap-2 text-[#10305B] hover:text-[#081b3c]">
-                <FaLinkedin /> linkedin.com/in/deeznuts
+                <FaLinkedin /> linkedin.com/in/{user.name.replace(" ", "").toLowerCase()}
               </a>
             </div>
           </div>
@@ -63,4 +77,3 @@ function Profile() {
 }
 
 export default Profile;
-

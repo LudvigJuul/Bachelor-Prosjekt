@@ -69,6 +69,20 @@ class User(db.Model):
             "profile_pic": f"http://127.0.0.1:5000/uploads/{self.profile_pic.split(os.sep)[-1]}"
         }
 
+class Device(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    type = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "type": self.type,
+            "user_id": self.user_id,
+        }
+
 # -----------------------------------------------------------------------------
 # DECORATORS
 # -----------------------------------------------------------------------------
@@ -206,6 +220,93 @@ def login():
 def protected_route(current_user):
     """Demonstrates how to use the current_user from token_required."""
     return jsonify({"message": f"Hello, {current_user.name}!"})
+
+
+@app.route("/api/profile", methods=["PUT"])
+@token_required
+def update_profile(current_user):
+    """Update profile information of the logged-in user."""
+    data = request.form if request.content_type.startswith("multipart/form-data") else request.get_json()
+
+    # Oppdaterbare felter
+    name = data.get("name", current_user.name)
+    title = data.get("title", current_user.title)
+    company = data.get("company", current_user.company)
+    phone = data.get("phone", current_user.phone)
+    
+    # Håndtering av profilbilde (valgfritt)
+    if "profilePic" in request.files:
+        profile_pic = request.files["profilePic"]
+        if profile_pic.filename:
+            filename = secure_filename(profile_pic.filename)
+            filename = f"profile_{datetime.datetime.utcnow().timestamp()}_{filename}"
+            filepath = os.path.join(UPLOAD_FOLDER, filename)
+            os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+            profile_pic.save(filepath)
+            current_user.profile_pic = filepath  # Oppdaterer bildebanen
+
+    # Oppdater brukerdata
+    current_user.name = name
+    current_user.title = title
+    current_user.company = company
+    current_user.phone = phone
+
+    try:
+        db.session.commit()
+        return jsonify({"message": "Profile updated successfully!", "user": current_user.to_dict()}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": "An error occurred while updating profile.", "error": str(e)}), 500
+
+# ---------------------------------------------------------------------
+# DEVICE ROUTES
+# ---------------------------------------------------------------------
+@app.route("/api/devices", methods=["POST"])
+@token_required
+def add_device(current_user):
+    data = request.get_json()
+    if not data or "name" not in data or "type" not in data:
+        return jsonify({"message": "Missing required fields"}), 400
+
+    new_device = Device(name=data["name"], type=data["type"], user_id=current_user.id)
+
+    try:
+        db.session.add(new_device)
+        db.session.commit()
+        return jsonify({"message": "Device added successfully", "device": new_device.to_dict()}), 201
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": "Error adding device", "error": str(e)}), 500
+
+
+@app.route("/api/devices", methods=["GET"])
+@token_required
+def get_devices(current_user):
+    devices = Device.query.filter_by(user_id=current_user.id).all()
+    return jsonify([device.to_dict() for device in devices]), 200
+
+
+if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
+    app.run(debug=True, host="127.0.0.1", port=5000)
+
+@app.route("/api/devices/<int:device_id>", methods=["DELETE"])
+@token_required
+def delete_device(current_user, device_id):
+    device = Device.query.filter_by(id=device_id, user_id=current_user.id).first()
+    if not device:
+        return jsonify({"message": "Device not found"}), 404
+
+    try:
+        db.session.delete(device)
+        db.session.commit()
+        return jsonify({"message": "Device removed successfully"}), 200
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({"message": "Error removing device", "error": str(e)}), 500
+
+
 
 # -----------------------------------------------------------------------------
 # RUN THE APPLICATION

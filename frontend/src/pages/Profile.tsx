@@ -34,6 +34,7 @@ function Profile() {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center text-[#10305B] p-6">
+      <h1 className="text-[#002250] text-3xl font-weight: 900; font-medium font-sans mb-10">Profile</h1>
         <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-lg border border-gray-200 ">
           <div className="flex items-center gap-4">
             <img

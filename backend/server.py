@@ -12,10 +12,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
 import jwt
 
-
-
-
-
 # OPTIONAL: If you're using a .env file to store environment variables,
 # uncomment the following lines after installing python-dotenv:
 # pip install python-dotenv
@@ -23,7 +19,7 @@ import jwt
 # load_dotenv()
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}}, methods=["GET", "POST", "PUT", "DELETE"])
 
 
 
@@ -66,7 +62,7 @@ class User(db.Model):
             "company": self.company,
             "title": self.title,
             "phone": self.phone,
-            "profile_pic": f"http://127.0.0.1:5000/uploads/{self.profile_pic.split(os.sep)[-1]}"
+            "profile_pic": f"http://127.0.0.1:5000/uploads/{self.profile_pic.split(os.sep)[-1]}" if self.profile_pic else None
         }
 
 class Device(db.Model):
@@ -150,8 +146,6 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route("/api/signup", methods=["POST"])
-
-
 def signup():
     """Register a new user. Supports profile picture upload."""
     
@@ -267,9 +261,7 @@ def add_device(current_user):
     data = request.get_json()
     if not data or "name" not in data or "type" not in data:
         return jsonify({"message": "Missing required fields"}), 400
-
     new_device = Device(name=data["name"], type=data["type"], user_id=current_user.id)
-
     try:
         db.session.add(new_device)
         db.session.commit()
@@ -284,28 +276,29 @@ def add_device(current_user):
 def get_devices(current_user):
     devices = Device.query.filter_by(user_id=current_user.id).all()
     return jsonify([device.to_dict() for device in devices]), 200
-
-
 if __name__ == "__main__":
     with app.app_context():
         db.create_all()
     app.run(debug=True, host="127.0.0.1", port=5000)
 
-@app.route("/api/devices/<int:device_id>", methods=["DELETE"])
+@app.route("/api/devices/<int:device_id>", methods=["OPTIONS", "DELETE"])
 @token_required
 def delete_device(current_user, device_id):
+    if request.method == "OPTIONS":
+        # Returner en suksessrespons for preflight-sjekken
+        return jsonify({"message": "Preflight check successful"}), 200
+
+    # DELETE-logikk følger her
     device = Device.query.filter_by(id=device_id, user_id=current_user.id).first()
     if not device:
         return jsonify({"message": "Device not found"}), 404
-
     try:
         db.session.delete(device)
         db.session.commit()
-        return jsonify({"message": "Device removed successfully"}), 200
+        return jsonify({"message": "Device deleted successfully"}), 200
     except Exception as e:
         db.session.rollback()
-        return jsonify({"message": "Error removing device", "error": str(e)}), 500
-
+        return jsonify({"message": "Error deleting device", "error": str(e)}), 500
 
 
 # -----------------------------------------------------------------------------

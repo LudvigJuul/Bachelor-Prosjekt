@@ -23,47 +23,31 @@ function Settings() {
   const [saving, setSaving] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [deviceName, setDeviceName] = useState("");
-  const [deviceType, setDeviceType] = useState("PC");
+  const [deviceType, setDeviceType] = useState("PC"); 
 
-  
   useEffect(() => {
-    const fetchProfile = async () => {
+    const fetchProfileAndDevices = async () => {
       const token = localStorage.getItem("token");
       if (!token) {
         console.error("No token found, redirecting...");
+        setLoading(false);
         return;
-      }
-
-      try {
-        const response = await axios.get("http://127.0.0.1:5000/api/profile", {
+      } try {
+        const profileResponse = await axios.get("http://127.0.0.1:5000/api/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        setUser(response.data);
-        setLoading(false);
+        setUser(profileResponse.data);
+        const devicesResponse = await axios.get("http://127.0.0.1:5000/api/devices", {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        setDevices(devicesResponse.data);
       } catch (error) {
-        console.error("Failed to fetch profile", error);
+        console.error("Error fetching profile or devices", error);
+      } finally {
         setLoading(false);
       }
     };
-
-    const fetchDevices = async () => {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.error("No token found");
-        return;
-      }
-
-      try {
-        const response = await axios.get("http://127.0.0.1:5000/api/devices", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
-        setDevices(response.data);
-      } catch (error) {
-        console.error("Failed to fetch devices", error);
-      }
-    };
-    fetchProfile();
-    fetchDevices();
+    fetchProfileAndDevices();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,13 +57,10 @@ function Settings() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSaving(true);
-
     try {
       const token = localStorage.getItem("token");
       await axios.put("http://127.0.0.1:5000/api/profile", user, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
+        headers: { Authorization: `Bearer ${token}` },});
       alert("Profile updated successfully!");
     } catch (error) {
       console.error("Failed to update profile", error);
@@ -89,38 +70,44 @@ function Settings() {
     }
   };
 
+  // Legg til enheter
   const handleAddDevice = async () => {
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("No token found");
       return;
-    }
-
-    try {
+    } try {
       const response = await axios.post(
         "http://127.0.0.1:5000/api/devices",
         { name: deviceName, type: deviceType },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      setDevices([...devices, response.data.device]); // Oppdater enhetsliste
+        { headers: { Authorization: `Bearer ${token}` }});
+      if (!response.data.device) {
+        console.error("Unexpected response format", response.data);
+        return;
+      }
+      setDevices([...devices, response.data.device]); 
       setIsModalOpen(false);
       setDeviceName("");
     } catch (error) {
       console.error("Error adding device", error);
     }
-  };
+  }
 
-  const handleRemoveDevice = async (id: number) => {
+  // Fjern enheter
+  const handleRemoveDevice = async (deviceId: number) => {
     const token = localStorage.getItem("token");
-    if (!token) return;
-
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
     try {
-      await axios.delete(`http://127.0.0.1:5000/api/devices/${id}`, {
+      await axios.delete(`http://127.0.0.1:5000/api/devices/${deviceId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      setDevices(devices.filter(device => device.id !== id));
+      setDevices(devices.filter((device) => device.id !== deviceId));
     } catch (error) {
       console.error("Error removing device", error);
+      alert("Failed to remove device.");
     }
   };
 
@@ -132,8 +119,8 @@ function Settings() {
         <h1 className="text-[#002250] text-2xl font-bold mb-4">Edit Profile</h1>
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-lg p-6 rounded-xl w-full max-w-md border border-gray-200"
-        >
+          className="bg-white shadow-lg p-6 rounded-xl w-full max-w-md border border-gray-200">
+
           <label className="block mb-2">Name:
             <input type="text" name="name" value={user.name} onChange={handleChange} className="w-full border p-2 rounded" required/>
           </label>
@@ -162,17 +149,20 @@ function Settings() {
         {/* Enhetsliste */}
         <h2 className="text-[#002250] text-2xl font-bold pt-10">My Devices</h2>
         <div className="mt-6 w-full max-w-md bg-white shadow-lg p-4 rounded-xl border border-gray-200">
-          
           {devices.length === 0 ? (
             <p className="text-gray-500">No Devices registered</p>
           ) : (
             <ul>
               {devices.map((device) => (
-                <li key={device.id} className="border-b p-2">
-                  {device.name} - {device.type}
-                </li>
-              ))}
-            </ul>
+                <li key={device.id} className="border-b p-2 flex justify-between items-center">
+                  <span>{device.name} - {device.type}</span>
+                  <button
+                    className="bg-red-500 text-white px-2 py-1 rounded text-sm"
+                    onClick={() => handleRemoveDevice(device.id)}>Delete
+                  </button>
+              </li>
+            ))}
+          </ul>
           )}
         </div>
 

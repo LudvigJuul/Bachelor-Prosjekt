@@ -8,24 +8,19 @@ function Profile() {
 
   useEffect(() => {
     const fetchProfile = async () => {
-      const token = localStorage.getItem("token"); // Hent token fra localStorage
+      const token = localStorage.getItem("token");
       if (!token) {
         console.error("No token found, redirecting...");
         return;
-      }
-
-      try {
+      } try {
         const response = await axios.get("http://127.0.0.1:5000/api/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(response.data);
-        
         setUser(response.data);
       } catch (error) {
         console.error("Failed to fetch profile", error);
       }
     };
-
     fetchProfile();
   }, []);
 
@@ -38,7 +33,6 @@ function Profile() {
         <div className="bg-white shadow-lg p-8 rounded-xl w-full max-w-lg border border-gray-200 ">
           <div className="flex items-center gap-4">
             <img
-              // src="..\backend\UPLOAD_FOLDER\profile_1741866937.56716_bombardino_crocodilo.jpg"
               src={user.profile_pic}
               alt="User Avatar"
               className="w-100 h-100 rounded-full border-4 border-[#10305B]"

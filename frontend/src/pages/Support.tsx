@@ -7,13 +7,13 @@ function Support() {
       <div className="text-white p-6">
         <h1 className="text-green-400 text-3xl font-bold mb-4">Support</h1>
 
-        <p className="text-blue-300 text-lg mb-6">
+        <p className="text-blue-900 text-lg mb-6">
           Welcome to Bravo AS support. We're here to help you with any questions or issues you may have.
         </p>
 
         {/* Contact Information */}
         <div className="mb-6">
-          <h2 className="text-green-300 text-2xl font-semibold mb-2">Contact Us</h2>
+          <h2 className="text-green-400 text-2xl font-semibold mb-2">Contact Us</h2>
           <p className="text-gray-400 flex items-center">
             <Mail className="w-5 h-5 text-green-400 mr-2" /> 
             <a href="mailto:support@bravoas.com" className="text-green-400 hover:underline">
@@ -32,7 +32,7 @@ function Support() {
 
         {/* FAQ Section */}
         <div className="mb-6">
-          <h2 className="text-green-300 text-2xl font-semibold mb-2">Frequently Asked Questions</h2>
+          <h2 className="text-green-400 text-2xl font-semibold mb-2">Frequently Asked Questions</h2>
           <details className="mb-2">
             <summary className="cursor-pointer text-green-400 hover:underline flex items-center">
               <Lock className="w-5 h-5 mr-2" /> How can I reset my password?
@@ -64,7 +64,7 @@ function Support() {
 
         {/* Support Ticket Section */}
         <div>
-          <h2 className="text-green-300 text-2xl font-semibold mb-2">Need Further Assistance?</h2>
+          <h2 className="text-green-400 text-2xl font-semibold mb-2">Need Further Assistance?</h2>
           <p className="text-gray-400 mb-4">If you need further help, feel free to open a support ticket.</p>
           <a 
             href="/support/ticket" 

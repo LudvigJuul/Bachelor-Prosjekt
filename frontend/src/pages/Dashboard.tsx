@@ -179,9 +179,9 @@ function Dashboard() {
               </button>
               <h2 className="text-[#50f49b] text-2xl  font-medium font-sans mb-4">Activity</h2>
               <BarChart width={300} height={200} data={dataBar}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
+              <CartesianGrid stroke="white" strokeDasharray="3 3" />
+                <XAxis stroke="white" dataKey="name" />
+                <YAxis stroke="white" />
                 <Tooltip />
                 <Bar dataKey="sales" fill="#29f185" />
               </BarChart>

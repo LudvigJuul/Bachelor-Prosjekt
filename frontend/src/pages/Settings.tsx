@@ -106,7 +106,9 @@ function Settings() {
       });
       setDevices(devices.filter((device) => device.id !== deviceId));
     } catch (error) {
-      console.error("Error removing device", error);
+      console.error("Error removing device", 
+        
+      );
       alert("Failed to remove device.");
     }
   };

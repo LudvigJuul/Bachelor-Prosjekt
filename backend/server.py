@@ -19,8 +19,13 @@ import jwt
 # load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}}, methods=["GET", "POST", "PUT", "DELETE"])
 
+#CORS(app, resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}}, methods=["GET", "POST", "PUT", "DELETE"])
+
+CORS(app,
+     resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}},
+     methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+     supports_credentials=True)
 
 
 # Use an environment variable for the secret key, with a fallback if not set
@@ -82,13 +87,46 @@ class Device(db.Model):
 # -----------------------------------------------------------------------------
 # DECORATORS
 # -----------------------------------------------------------------------------
+
+# def token_required(f):
+#     """Decorator to protect routes with JWT token authentication."""
+#     @wraps(f)
+#     def decorated(*args, **kwargs):
+#         token = None
+
+#         # Typically, the token is sent in the Authorization header as 'Bearer <token>'
+#         if "Authorization" in request.headers:
+#             parts = request.headers["Authorization"].split()
+#             if len(parts) == 2 and parts[0].lower() == "bearer":
+#                 token = parts[1]
+
+#         if not token:
+#             return jsonify({"message": "Token is missing"}), 401
+
+#         try:
+#             # Decode the token
+#             data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
+#             current_user = User.query.get(data["user_id"])
+#             if not current_user:
+#                 return jsonify({"message": "User not found"}), 404
+#         except jwt.ExpiredSignatureError:
+#             return jsonify({"message": "Token has expired"}), 401
+#         except jwt.InvalidTokenError:
+#             return jsonify({"message": "Invalid token"}), 401
+
+#         # Pass the current_user to the protected route
+#         return f(current_user, *args, **kwargs)
+
+#     return decorated
+
 def token_required(f):
-    """Decorator to protect routes with JWT token authentication."""
     @wraps(f)
     def decorated(*args, **kwargs):
-        token = None
+        # Tillat preflight uten token
+        if request.method == "OPTIONS":
+            return f(None, *args, **kwargs)
 
-        # Typically, the token is sent in the Authorization header as 'Bearer <token>'
+        token = None
         if "Authorization" in request.headers:
             parts = request.headers["Authorization"].split()
             if len(parts) == 2 and parts[0].lower() == "bearer":
@@ -98,7 +136,6 @@ def token_required(f):
             return jsonify({"message": "Token is missing"}), 401
 
         try:
-            # Decode the token
             data = jwt.decode(token, app.config["SECRET_KEY"], algorithms=["HS256"])
             current_user = User.query.get(data["user_id"])
             if not current_user:
@@ -108,10 +145,9 @@ def token_required(f):
         except jwt.InvalidTokenError:
             return jsonify({"message": "Invalid token"}), 401
 
-        # Pass the current_user to the protected route
         return f(current_user, *args, **kwargs)
-
     return decorated
+
 
 # -----------------------------------------------------------------------------
 # ROUTES
@@ -276,10 +312,6 @@ def add_device(current_user):
 def get_devices(current_user):
     devices = Device.query.filter_by(user_id=current_user.id).all()
     return jsonify([device.to_dict() for device in devices]), 200
-if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True, host="127.0.0.1", port=5000)
 
 @app.route("/api/devices/<int:device_id>", methods=["OPTIONS", "DELETE"])
 @token_required
@@ -305,7 +337,7 @@ def delete_device(current_user, device_id):
 # RUN THE APPLICATION
 # -----------------------------------------------------------------------------
 if __name__ == "__main__":
-    # For production, you might remove this or rely on Flask-Migrate to manage your schema.
     with app.app_context():
         db.create_all()
     app.run(debug=True, host="127.0.0.1", port=5000)
+

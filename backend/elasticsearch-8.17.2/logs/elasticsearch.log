@@ -1,779 +1,252 @@
-[2025-03-20T11:39:10,421][INFO ][o.e.n.NativeAccess       ] [DESKTOP-3GTEBD7] Using [jdk] native provider and native methods for [Windows]
-[2025-03-20T11:39:10,613][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [DESKTOP-3GTEBD7] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
-[2025-03-20T11:39:10,613][INFO ][o.e.j.JarHell            ] [DESKTOP-3GTEBD7] Bootstrapping java SecurityManager
-[2025-03-20T11:39:12,262][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] version[8.17.2], pid[10792], build[zip/747663ddda3421467150de0e4301e8d4bc636b0c/2025-02-05T22:10:57.067596412Z], OS[Windows 11/10.0/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/23/23+37-2369]
-[2025-03-20T11:39:12,264][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM home [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\jdk], using bundled JDK [true]
-[2025-03-20T11:39:12,264][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Des.distribution.type=zip, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, -XX:ReplayDataFile=logs/replay_pid%p.log, -Djava.security.manager=allow, -XX:+UseG1GC, -Djava.io.tmpdir=C:\Users\Ludvi\AppData\Local\Temp\elasticsearch, --add-modules=jdk.incubator.vector, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.setAsTypeCache, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.asTypeUncached, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms8148m, -Xmx8148m, -XX:MaxDirectMemorySize=4271898624, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
-[2025-03-20T11:39:12,265][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] Default Locale [no_NO]
-[2025-03-20T11:39:40,580][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-url]
-[2025-03-20T11:39:40,580][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rest-root]
-[2025-03-20T11:39:40,581][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-core]
-[2025-03-20T11:39:40,581][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-redact]
-[2025-03-20T11:39:40,581][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-user-agent]
-[2025-03-20T11:39:40,581][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async-search]
-[2025-03-20T11:39:40,581][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-monitoring]
-[2025-03-20T11:39:40,582][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-s3]
-[2025-03-20T11:39:40,582][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-analytics]
-[2025-03-20T11:39:40,582][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql-core]
-[2025-03-20T11:39:40,582][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ent-search]
-[2025-03-20T11:39:40,583][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-autoscaling]
-[2025-03-20T11:39:40,583][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-painless]
-[2025-03-20T11:39:40,585][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ml]
-[2025-03-20T11:39:40,586][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-mustache]
-[2025-03-20T11:39:40,586][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [legacy-geo]
-[2025-03-20T11:39:40,587][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [logsdb]
-[2025-03-20T11:39:40,587][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ql]
-[2025-03-20T11:39:40,588][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-rrf]
-[2025-03-20T11:39:40,588][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [analysis-common]
-[2025-03-20T11:39:40,588][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [health-shards-availability]
-[2025-03-20T11:39:40,589][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transport-netty4]
-[2025-03-20T11:39:40,589][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [aggregations]
-[2025-03-20T11:39:40,590][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-common]
-[2025-03-20T11:39:40,590][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [frozen-indices]
-[2025-03-20T11:39:40,591][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-identity-provider]
-[2025-03-20T11:39:40,591][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-shutdown]
-[2025-03-20T11:39:40,593][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-text-structure]
-[2025-03-20T11:39:40,593][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-repo-test-kit]
-[2025-03-20T11:39:40,594][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ml-package-loader]
-[2025-03-20T11:39:40,594][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [kibana]
-[2025-03-20T11:39:40,595][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [constant-keyword]
-[2025-03-20T11:39:40,596][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-logstash]
-[2025-03-20T11:39:40,597][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ccr]
-[2025-03-20T11:39:40,598][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-graph]
-[2025-03-20T11:39:40,598][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql]
-[2025-03-20T11:39:40,599][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [parent-join]
-[2025-03-20T11:39:40,599][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [counted-keyword]
-[2025-03-20T11:39:40,601][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-enrich]
-[2025-03-20T11:39:40,601][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repositories-metering-api]
-[2025-03-20T11:39:40,602][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transform]
-[2025-03-20T11:39:40,602][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-azure]
-[2025-03-20T11:39:40,603][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [dot-prefix-validation]
-[2025-03-20T11:39:40,603][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-gcs]
-[2025-03-20T11:39:40,604][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [spatial]
-[2025-03-20T11:39:40,604][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-otel-data]
-[2025-03-20T11:39:40,605][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [apm]
-[2025-03-20T11:39:40,605][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-extras]
-[2025-03-20T11:39:40,605][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-version]
-[2025-03-20T11:39:40,606][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-rollup]
-[2025-03-20T11:39:40,606][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [percolator]
-[2025-03-20T11:39:40,607][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [data-streams]
-[2025-03-20T11:39:40,608][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-stack]
-[2025-03-20T11:39:40,608][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-eval]
-[2025-03-20T11:39:40,608][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [reindex]
-[2025-03-20T11:39:40,610][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-security]
-[2025-03-20T11:39:40,612][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [blob-cache]
-[2025-03-20T11:39:40,612][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [searchable-snapshots]
-[2025-03-20T11:39:40,613][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-slm]
-[2025-03-20T11:39:40,613][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-geoip-enterprise-downloader]
-[2025-03-20T11:39:40,614][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-based-recoveries]
-[2025-03-20T11:39:40,614][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-watcher]
-[2025-03-20T11:39:40,615][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [old-lucene-versions]
-[2025-03-20T11:39:40,615][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ilm]
-[2025-03-20T11:39:40,617][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-inference]
-[2025-03-20T11:39:40,617][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-voting-only-node]
-[2025-03-20T11:39:40,618][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-deprecation]
-[2025-03-20T11:39:40,618][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-fleet]
-[2025-03-20T11:39:40,619][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-aggregate-metric]
-[2025-03-20T11:39:40,619][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-downsample]
-[2025-03-20T11:39:40,619][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-profiling]
-[2025-03-20T11:39:40,620][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-geoip]
-[2025-03-20T11:39:40,620][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-write-load-forecaster]
-[2025-03-20T11:39:40,621][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [search-business-rules]
-[2025-03-20T11:39:40,621][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-attachment]
-[2025-03-20T11:39:40,622][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [wildcard]
-[2025-03-20T11:39:40,622][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-apm-data]
-[2025-03-20T11:39:40,623][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [unsigned-long]
-[2025-03-20T11:39:40,623][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-sql]
-[2025-03-20T11:39:40,625][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [runtime-fields-common]
-[2025-03-20T11:39:40,629][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async]
-[2025-03-20T11:39:40,629][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [vector-tile]
-[2025-03-20T11:39:40,629][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-kql]
-[2025-03-20T11:39:40,631][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-expression]
-[2025-03-20T11:39:40,631][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-eql]
-[2025-03-20T11:39:41,976][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] using [1] data paths, mounts [[(C:)]], net usable_space [109.4gb], net total_space [930.2gb], types [NTFS]
-[2025-03-20T11:39:41,977][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] heap size [7.9gb], compressed ordinary object pointers [true]
-[2025-03-20T11:39:42,060][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] node name [DESKTOP-3GTEBD7], node ID [eghVlMeGToeucHZ54u8vzg], cluster name [elasticsearch], roles [data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest]
-[2025-03-20T11:39:45,279][INFO ][o.e.i.r.RecoverySettings ] [DESKTOP-3GTEBD7] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
-[2025-03-20T11:39:45,457][INFO ][o.e.f.FeatureService     ] [DESKTOP-3GTEBD7] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, knn_retriever_supported, license-trial-independent-version, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.test, random_reranker_retriever_supported, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.vectors.k_param_supported, security.migration_framework, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.default_elser_2, semantic_text.search_inference_id, simulate.component.template.substitutions, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
-[2025-03-20T11:39:45,485][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated default factory retention to [null]
-[2025-03-20T11:39:45,485][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated max factory retention to [null]
-[2025-03-20T11:39:45,927][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/21416] [Main.cc@123] controller (64 bit): Version 8.17.2 (Build 002b4653bd15a4) Copyright (c) 2025 Elasticsearch BV
-[2025-03-20T11:39:46,295][INFO ][o.e.x.o.OTelPlugin       ] [DESKTOP-3GTEBD7] OTel ingest plugin is enabled
-[2025-03-20T11:39:46,318][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] OpenTelemetry index template registry is enabled
-[2025-03-20T11:39:46,321][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm metrics is disabled
-[2025-03-20T11:39:46,321][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm tracing is disabled
-[2025-03-20T11:39:46,354][INFO ][o.e.x.s.Security         ] [DESKTOP-3GTEBD7] Security is enabled
-[2025-03-20T11:39:46,664][INFO ][o.e.x.s.a.s.FileRolesStore] [DESKTOP-3GTEBD7] parsed [0] roles from file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\roles.yml]
-[2025-03-20T11:39:47,001][INFO ][o.e.x.w.Watcher          ] [DESKTOP-3GTEBD7] Watcher initialized components at 2025-03-20T10:39:47.001Z
-[2025-03-20T11:39:47,081][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] Profiling is enabled
-[2025-03-20T11:39:47,095][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] profiling index templates will not be installed or reinstalled
-[2025-03-20T11:39:47,101][INFO ][o.e.x.a.APMPlugin        ] [DESKTOP-3GTEBD7] APM ingest plugin is enabled
-[2025-03-20T11:39:47,131][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] apm index template registry is enabled
-[2025-03-20T11:39:47,608][INFO ][o.e.t.n.NettyAllocator   ] [DESKTOP-3GTEBD7] creating NettyAllocator with the following configs: [name=elasticsearch_configured, chunk_size=1mb, suggested_max_allocation_size=1mb, factors={es.unsafe.use_netty_default_chunk_and_page_size=false, g1gc_enabled=true, g1gc_region_size=4mb}]
-[2025-03-20T11:39:47,657][INFO ][o.e.d.DiscoveryModule    ] [DESKTOP-3GTEBD7] using discovery type [multi-node] and seed hosts providers [settings]
-[2025-03-20T11:39:48,742][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] initialized
-[2025-03-20T11:39:48,743][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] starting ...
-[2025-03-20T11:39:48,761][INFO ][o.e.x.s.c.f.PersistentCache] [DESKTOP-3GTEBD7] persistent cache index loaded
-[2025-03-20T11:39:48,762][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [DESKTOP-3GTEBD7] deprecation component started
-[2025-03-20T11:39:48,849][INFO ][o.e.t.TransportService   ] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
-[2025-03-20T11:39:49,176][WARN ][o.e.b.BootstrapChecks    ] [DESKTOP-3GTEBD7] Transport SSL must be enabled if security is enabled. Please set [xpack.security.transport.ssl.enabled] to [true] or disable security by setting [xpack.security.enabled] to [false]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/8.17/bootstrap-checks-xpack.html#bootstrap-checks-tls]
-[2025-03-20T11:39:49,177][WARN ][o.e.c.c.ClusterBootstrapService] [DESKTOP-3GTEBD7] this node is locked into cluster UUID [q4xX1Hd5REudhXCkiA9LXw] but [cluster.initial_master_nodes] is set to [DESKTOP-3GTEBD7]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.17/important-settings.html#initial_master_nodes
-[2025-03-20T11:39:49,268][INFO ][o.e.c.s.MasterService    ] [DESKTOP-3GTEBD7] elected-as-master ([1] nodes joined in term 17)[_FINISH_ELECTION_, {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{Dt8HqQ8BRqeUE_qrkc59_g}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000} completing election], term: 17, version: 266, delta: master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{Dt8HqQ8BRqeUE_qrkc59_g}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}
-[2025-03-20T11:39:49,315][INFO ][o.e.c.s.ClusterApplierService] [DESKTOP-3GTEBD7] master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{Dt8HqQ8BRqeUE_qrkc59_g}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}, term: 17, version: 266, reason: Publication{term=17, version=266}
-[2025-03-20T11:39:49,351][INFO ][o.e.c.c.NodeJoinExecutor ] [DESKTOP-3GTEBD7] node-join: [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{Dt8HqQ8BRqeUE_qrkc59_g}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}] with reason [completing election]
-[2025-03-20T11:39:49,351][INFO ][o.e.h.AbstractHttpServerTransport] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
-[2025-03-20T11:39:49,374][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] started {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{Dt8HqQ8BRqeUE_qrkc59_g}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}{ml.machine_memory=17088503808, transform.config_version=10.0.0, xpack.installed=true, ml.config_version=12.0.0, ml.max_jvm_size=8543797248, ml.allocated_processors_double=24.0, ml.allocated_processors=24}
-[2025-03-20T11:39:49,675][INFO ][o.e.x.s.a.Realms         ] [DESKTOP-3GTEBD7] license mode is [basic], currently licensed security realms are [reserved/reserved,file/default_file,native/default_native]
-[2025-03-20T11:39:49,679][INFO ][o.e.l.ClusterStateLicenseService] [DESKTOP-3GTEBD7] license [79293fc9-c321-44d4-91ac-f3ff191d72b8] mode [basic] - valid
-[2025-03-20T11:39:49,681][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] starting file watcher ...
-[2025-03-20T11:39:49,688][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] file settings service up and running [tid=112]
-[2025-03-20T11:39:49,688][INFO ][o.e.g.GatewayService     ] [DESKTOP-3GTEBD7] recovered [9] indices into cluster_state
-[2025-03-20T11:39:49,690][INFO ][o.e.r.s.FileSettingsService] [DESKTOP-3GTEBD7] setting file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\operator\settings.json] not found, initializing [file_settings] as empty
-[2025-03-20T11:39:49,951][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [DESKTOP-3GTEBD7] Node [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}] is selected as the current health node.
-[2025-03-20T11:39:50,169][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] current.health="YELLOW" message="Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.ds-.logs-deprecation.elasticsearch-default-2025.02.26-000001][0]]])." previous.health="RED" reason="shards started [[.ds-.logs-deprecation.elasticsearch-default-2025.02.26-000001][0]]"
-[2025-03-20T11:40:19,358][INFO ][o.e.c.r.a.DiskThresholdMonitor] [DESKTOP-3GTEBD7] low disk watermark [85%] exceeded on [eghVlMeGToeucHZ54u8vzg][DESKTOP-3GTEBD7][C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\data] free: 109.4gb[11.7%], replicas will not be assigned to this node
-[2025-03-20T11:44:49,725][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-ilm-history-7-2025.03.20-000003] creating index, cause [rollover_data_stream], templates [ilm-history-7], shards [1]/[1]
-[2025-03-20T11:44:49,737][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.ds-ilm-history-7-2025.03.20-000003]
-[2025-03-20T11:44:49,972][INFO ][o.e.d.l.DataStreamLifecycleService] [DESKTOP-3GTEBD7] Data stream lifecycle successfully rolled over datastream [ilm-history-7] due to the following met rollover conditions [[min_docs: 1], [max_age: 7d]]. The new index is [.ds-ilm-history-7-2025.03.20-000003]
-[2025-03-20T11:49:49,706][INFO ][o.e.d.l.DataStreamLifecycleService] [DESKTOP-3GTEBD7] Data stream lifecycle service successfully updated settings [[index.merge.policy.floor_segment, index.merge.policy.merge_factor]] for index index [.ds-ilm-history-7-2025.03.12-000002]
-[2025-03-20T11:54:49,661][INFO ][o.e.d.l.DataStreamLifecycleService] [DESKTOP-3GTEBD7] Data stream lifecycle is issuing a request to force merge index [.ds-ilm-history-7-2025.03.12-000002]
-[2025-03-20T11:54:49,672][INFO ][o.e.d.l.DataStreamLifecycleService] [DESKTOP-3GTEBD7] Data stream lifecycle successfully force merged index [.ds-ilm-history-7-2025.03.12-000002]
-[2025-03-20T12:02:48,145][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopping ...
-[2025-03-20T12:02:48,146][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] shutting down watcher thread
-[2025-03-20T12:02:48,148][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] watcher service stopped
-[2025-03-20T12:02:48,148][INFO ][o.e.x.w.WatcherService   ] [DESKTOP-3GTEBD7] stopping watch service, reason [shutdown initiated]
-[2025-03-20T12:02:48,149][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/21416] [Main.cc@176] ML controller exiting
-[2025-03-20T12:02:48,149][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [DESKTOP-3GTEBD7] Stopping watcher engine
-[2025-03-20T12:02:48,149][INFO ][o.e.x.w.WatcherLifeCycleService] [DESKTOP-3GTEBD7] watcher has stopped and shutdown
-[2025-03-20T12:02:48,150][INFO ][o.e.x.m.p.NativeController] [DESKTOP-3GTEBD7] Native controller process has stopped - no new native processes can be started
-[2025-03-20T12:02:48,281][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopped
-[2025-03-20T12:02:48,281][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closing ...
-[2025-03-20T12:02:48,293][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closed
-[2025-03-20T12:43:34,382][INFO ][o.e.n.NativeAccess       ] [DESKTOP-3GTEBD7] Using [jdk] native provider and native methods for [Windows]
-[2025-03-20T12:43:34,660][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [DESKTOP-3GTEBD7] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
-[2025-03-20T12:43:34,661][INFO ][o.e.j.JarHell            ] [DESKTOP-3GTEBD7] Bootstrapping java SecurityManager
-[2025-03-20T12:43:36,422][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] version[8.17.2], pid[16780], build[zip/747663ddda3421467150de0e4301e8d4bc636b0c/2025-02-05T22:10:57.067596412Z], OS[Windows 11/10.0/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/23/23+37-2369]
-[2025-03-20T12:43:36,423][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM home [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\jdk], using bundled JDK [true]
-[2025-03-20T12:43:36,424][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Des.distribution.type=zip, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, -XX:ReplayDataFile=logs/replay_pid%p.log, -Djava.security.manager=allow, -XX:+UseG1GC, -Djava.io.tmpdir=C:\Users\Ludvi\AppData\Local\Temp\elasticsearch, --add-modules=jdk.incubator.vector, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.setAsTypeCache, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.asTypeUncached, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms8148m, -Xmx8148m, -XX:MaxDirectMemorySize=4271898624, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
-[2025-03-20T12:43:36,426][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] Default Locale [no_NO]
-[2025-03-20T12:44:02,428][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-url]
-[2025-03-20T12:44:02,429][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rest-root]
-[2025-03-20T12:44:02,429][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-core]
-[2025-03-20T12:44:02,430][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-redact]
-[2025-03-20T12:44:02,430][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-user-agent]
-[2025-03-20T12:44:02,430][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async-search]
-[2025-03-20T12:44:02,431][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-monitoring]
-[2025-03-20T12:44:02,431][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-s3]
-[2025-03-20T12:44:02,431][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-analytics]
-[2025-03-20T12:44:02,431][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql-core]
-[2025-03-20T12:44:02,432][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ent-search]
-[2025-03-20T12:44:02,433][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-autoscaling]
-[2025-03-20T12:44:02,433][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-painless]
-[2025-03-20T12:44:02,434][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ml]
-[2025-03-20T12:44:02,434][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-mustache]
-[2025-03-20T12:44:02,434][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [legacy-geo]
-[2025-03-20T12:44:02,435][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [logsdb]
-[2025-03-20T12:44:02,435][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ql]
-[2025-03-20T12:44:02,436][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-rrf]
-[2025-03-20T12:44:02,436][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [analysis-common]
-[2025-03-20T12:44:02,436][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [health-shards-availability]
-[2025-03-20T12:44:02,437][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transport-netty4]
-[2025-03-20T12:44:02,437][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [aggregations]
-[2025-03-20T12:44:02,438][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-common]
-[2025-03-20T12:44:02,438][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [frozen-indices]
-[2025-03-20T12:44:02,438][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-identity-provider]
-[2025-03-20T12:44:02,439][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-shutdown]
-[2025-03-20T12:44:02,439][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-text-structure]
-[2025-03-20T12:44:02,439][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-repo-test-kit]
-[2025-03-20T12:44:02,440][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ml-package-loader]
-[2025-03-20T12:44:02,440][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [kibana]
-[2025-03-20T12:44:02,441][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [constant-keyword]
-[2025-03-20T12:44:02,442][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-logstash]
-[2025-03-20T12:44:02,442][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ccr]
-[2025-03-20T12:44:02,442][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-graph]
-[2025-03-20T12:44:02,443][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql]
-[2025-03-20T12:44:02,443][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [parent-join]
-[2025-03-20T12:44:02,444][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [counted-keyword]
-[2025-03-20T12:44:02,444][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-enrich]
-[2025-03-20T12:44:02,444][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repositories-metering-api]
-[2025-03-20T12:44:02,445][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transform]
-[2025-03-20T12:44:02,445][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-azure]
-[2025-03-20T12:44:02,446][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [dot-prefix-validation]
-[2025-03-20T12:44:02,446][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-gcs]
-[2025-03-20T12:44:02,446][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [spatial]
-[2025-03-20T12:44:02,447][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-otel-data]
-[2025-03-20T12:44:02,447][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [apm]
-[2025-03-20T12:44:02,447][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-extras]
-[2025-03-20T12:44:02,448][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-version]
-[2025-03-20T12:44:02,448][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-rollup]
-[2025-03-20T12:44:02,448][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [percolator]
-[2025-03-20T12:44:02,449][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [data-streams]
-[2025-03-20T12:44:02,449][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-stack]
-[2025-03-20T12:44:02,450][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-eval]
-[2025-03-20T12:44:02,451][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [reindex]
-[2025-03-20T12:44:02,451][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-security]
-[2025-03-20T12:44:02,451][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [blob-cache]
-[2025-03-20T12:44:02,451][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [searchable-snapshots]
-[2025-03-20T12:44:02,453][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-slm]
-[2025-03-20T12:44:02,453][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-geoip-enterprise-downloader]
-[2025-03-20T12:44:02,454][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-based-recoveries]
-[2025-03-20T12:44:02,454][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-watcher]
-[2025-03-20T12:44:02,454][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [old-lucene-versions]
-[2025-03-20T12:44:02,455][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ilm]
-[2025-03-20T12:44:02,455][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-inference]
-[2025-03-20T12:44:02,455][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-voting-only-node]
-[2025-03-20T12:44:02,456][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-deprecation]
-[2025-03-20T12:44:02,456][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-fleet]
-[2025-03-20T12:44:02,457][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-aggregate-metric]
-[2025-03-20T12:44:02,457][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-downsample]
-[2025-03-20T12:44:02,457][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-profiling]
-[2025-03-20T12:44:02,458][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-geoip]
-[2025-03-20T12:44:02,458][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-write-load-forecaster]
-[2025-03-20T12:44:02,459][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [search-business-rules]
-[2025-03-20T12:44:02,459][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-attachment]
-[2025-03-20T12:44:02,460][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [wildcard]
-[2025-03-20T12:44:02,460][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-apm-data]
-[2025-03-20T12:44:02,461][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [unsigned-long]
-[2025-03-20T12:44:02,461][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-sql]
-[2025-03-20T12:44:02,461][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [runtime-fields-common]
-[2025-03-20T12:44:02,462][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async]
-[2025-03-20T12:44:02,462][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [vector-tile]
-[2025-03-20T12:44:02,462][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-kql]
-[2025-03-20T12:44:02,463][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-expression]
-[2025-03-20T12:44:02,463][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-eql]
-[2025-03-20T12:44:03,982][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] using [1] data paths, mounts [[(C:)]], net usable_space [108gb], net total_space [930.2gb], types [NTFS]
-[2025-03-20T12:44:03,983][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] heap size [7.9gb], compressed ordinary object pointers [true]
-[2025-03-20T12:44:04,079][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] node name [DESKTOP-3GTEBD7], node ID [eghVlMeGToeucHZ54u8vzg], cluster name [elasticsearch], roles [data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest]
-[2025-03-20T12:44:07,030][INFO ][o.e.i.r.RecoverySettings ] [DESKTOP-3GTEBD7] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
-[2025-03-20T12:44:07,212][INFO ][o.e.f.FeatureService     ] [DESKTOP-3GTEBD7] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, knn_retriever_supported, license-trial-independent-version, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.test, random_reranker_retriever_supported, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.vectors.k_param_supported, security.migration_framework, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.default_elser_2, semantic_text.search_inference_id, simulate.component.template.substitutions, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
-[2025-03-20T12:44:07,236][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated default factory retention to [null]
-[2025-03-20T12:44:07,236][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated max factory retention to [null]
-[2025-03-20T12:44:07,742][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/13684] [Main.cc@123] controller (64 bit): Version 8.17.2 (Build 002b4653bd15a4) Copyright (c) 2025 Elasticsearch BV
-[2025-03-20T12:44:08,069][INFO ][o.e.x.o.OTelPlugin       ] [DESKTOP-3GTEBD7] OTel ingest plugin is enabled
-[2025-03-20T12:44:08,100][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] OpenTelemetry index template registry is enabled
-[2025-03-20T12:44:08,107][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm metrics is disabled
-[2025-03-20T12:44:08,107][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm tracing is disabled
-[2025-03-20T12:44:08,166][INFO ][o.e.x.s.Security         ] [DESKTOP-3GTEBD7] Security is enabled
-[2025-03-20T12:44:08,474][INFO ][o.e.x.s.a.s.FileRolesStore] [DESKTOP-3GTEBD7] parsed [0] roles from file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\roles.yml]
-[2025-03-20T12:44:08,912][INFO ][o.e.x.w.Watcher          ] [DESKTOP-3GTEBD7] Watcher initialized components at 2025-03-20T11:44:08.912Z
-[2025-03-20T12:44:08,970][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] Profiling is enabled
-[2025-03-20T12:44:08,984][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] profiling index templates will not be installed or reinstalled
-[2025-03-20T12:44:08,990][INFO ][o.e.x.a.APMPlugin        ] [DESKTOP-3GTEBD7] APM ingest plugin is enabled
-[2025-03-20T12:44:09,027][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] apm index template registry is enabled
-[2025-03-20T12:44:09,421][INFO ][o.e.t.n.NettyAllocator   ] [DESKTOP-3GTEBD7] creating NettyAllocator with the following configs: [name=elasticsearch_configured, chunk_size=1mb, suggested_max_allocation_size=1mb, factors={es.unsafe.use_netty_default_chunk_and_page_size=false, g1gc_enabled=true, g1gc_region_size=4mb}]
-[2025-03-20T12:44:09,463][INFO ][o.e.d.DiscoveryModule    ] [DESKTOP-3GTEBD7] using discovery type [multi-node] and seed hosts providers [settings]
-[2025-03-20T12:44:10,402][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] initialized
-[2025-03-20T12:44:10,403][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] starting ...
-[2025-03-20T12:44:10,419][INFO ][o.e.x.s.c.f.PersistentCache] [DESKTOP-3GTEBD7] persistent cache index loaded
-[2025-03-20T12:44:10,419][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [DESKTOP-3GTEBD7] deprecation component started
-[2025-03-20T12:44:10,489][INFO ][o.e.t.TransportService   ] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
-[2025-03-20T12:44:10,827][WARN ][o.e.b.BootstrapChecks    ] [DESKTOP-3GTEBD7] Transport SSL must be enabled if security is enabled. Please set [xpack.security.transport.ssl.enabled] to [true] or disable security by setting [xpack.security.enabled] to [false]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/8.17/bootstrap-checks-xpack.html#bootstrap-checks-tls]
-[2025-03-20T12:44:10,829][WARN ][o.e.c.c.ClusterBootstrapService] [DESKTOP-3GTEBD7] this node is locked into cluster UUID [q4xX1Hd5REudhXCkiA9LXw] but [cluster.initial_master_nodes] is set to [DESKTOP-3GTEBD7]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.17/important-settings.html#initial_master_nodes
-[2025-03-20T12:44:10,930][INFO ][o.e.c.s.MasterService    ] [DESKTOP-3GTEBD7] elected-as-master ([1] nodes joined in term 18)[_FINISH_ELECTION_, {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{d1J_P7_8SNCZ2s2zvCCBiA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000} completing election], term: 18, version: 286, delta: master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{d1J_P7_8SNCZ2s2zvCCBiA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}
-[2025-03-20T12:44:10,983][INFO ][o.e.c.s.ClusterApplierService] [DESKTOP-3GTEBD7] master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{d1J_P7_8SNCZ2s2zvCCBiA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}, term: 18, version: 286, reason: Publication{term=18, version=286}
-[2025-03-20T12:44:11,029][INFO ][o.e.c.c.NodeJoinExecutor ] [DESKTOP-3GTEBD7] node-join: [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{d1J_P7_8SNCZ2s2zvCCBiA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}] with reason [completing election]
-[2025-03-20T12:44:11,031][INFO ][o.e.h.AbstractHttpServerTransport] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
-[2025-03-20T12:44:11,050][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] started {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{d1J_P7_8SNCZ2s2zvCCBiA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}{ml.machine_memory=17088503808, transform.config_version=10.0.0, xpack.installed=true, ml.config_version=12.0.0, ml.max_jvm_size=8543797248, ml.allocated_processors_double=24.0, ml.allocated_processors=24}
-[2025-03-20T12:44:11,359][INFO ][o.e.x.s.a.Realms         ] [DESKTOP-3GTEBD7] license mode is [basic], currently licensed security realms are [reserved/reserved,file/default_file,native/default_native]
-[2025-03-20T12:44:11,363][INFO ][o.e.l.ClusterStateLicenseService] [DESKTOP-3GTEBD7] license [79293fc9-c321-44d4-91ac-f3ff191d72b8] mode [basic] - valid
-[2025-03-20T12:44:11,365][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] starting file watcher ...
-[2025-03-20T12:44:11,371][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] file settings service up and running [tid=107]
-[2025-03-20T12:44:11,371][INFO ][o.e.g.GatewayService     ] [DESKTOP-3GTEBD7] recovered [10] indices into cluster_state
-[2025-03-20T12:44:11,372][INFO ][o.e.r.s.FileSettingsService] [DESKTOP-3GTEBD7] setting file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\operator\settings.json] not found, initializing [file_settings] as empty
-[2025-03-20T12:44:11,645][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [DESKTOP-3GTEBD7] Node [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}] is selected as the current health node.
-[2025-03-20T12:44:11,903][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] current.health="YELLOW" message="Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.ds-ilm-history-7-2025.02.26-000001][0]]])." previous.health="RED" reason="shards started [[.ds-ilm-history-7-2025.02.26-000001][0]]"
-[2025-03-20T12:44:41,041][INFO ][o.e.c.r.a.DiskThresholdMonitor] [DESKTOP-3GTEBD7] low disk watermark [85%] exceeded on [eghVlMeGToeucHZ54u8vzg][DESKTOP-3GTEBD7][C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\data] free: 108gb[11.6%], replicas will not be assigned to this node
-[2025-03-20T12:45:32,452][INFO ][o.e.x.s.a.f.FileUserPasswdStore] [DESKTOP-3GTEBD7] users file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\users] changed. updating users...
-[2025-03-20T12:45:32,455][INFO ][o.e.x.s.a.f.FileUserRolesStore] [DESKTOP-3GTEBD7] users roles file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\users_roles] changed. updating users roles...
-[2025-03-20T12:45:37,463][INFO ][o.e.x.s.a.f.FileUserPasswdStore] [DESKTOP-3GTEBD7] users file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\users] changed. updating users...
-[2025-03-20T12:45:37,465][INFO ][o.e.x.s.a.f.FileUserRolesStore] [DESKTOP-3GTEBD7] users roles file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\users_roles] changed. updating users roles...
-[2025-03-20T12:54:58,922][INFO ][o.e.x.s.a.s.FileServiceAccountTokenStore] [DESKTOP-3GTEBD7] service tokens file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\service_tokens] changed. updating ...
-[2025-03-20T12:56:20,295][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_security_solution_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,297][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_security_solution_8.17.3_001]
-[2025-03-20T12:56:20,341][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_analytics_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,342][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_analytics_8.17.3_001]
-[2025-03-20T12:56:20,397][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_ingest_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,398][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_ingest_8.17.3_001]
-[2025-03-20T12:56:20,459][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_alerting_cases_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,460][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_alerting_cases_8.17.3_001]
-[2025-03-20T12:56:20,511][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_task_manager_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,512][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_task_manager_8.17.3_001]
-[2025-03-20T12:56:20,558][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_usage_counters_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,559][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_usage_counters_8.17.3_001]
-[2025-03-20T12:56:20,598][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_8.17.3_001] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:20,599][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.kibana_8.17.3_001]
-[2025-03-20T12:56:21,460][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [entities_v1_latest_base]
-[2025-03-20T12:56:21,463][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [entities_v1_event]
-[2025-03-20T12:56:21,467][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [entities_v1_entity]
-[2025-03-20T12:56:22,365][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-data-quality-dashboard-results-mappings]
-[2025-03-20T12:56:22,369][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-framework-mappings]
-[2025-03-20T12:56:22,374][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-legacy-alert-mappings]
-[2025-03-20T12:56:22,381][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-technical-mappings]
-[2025-03-20T12:56:22,457][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [apm-source-map] for index patterns [.apm-source-map]
-[2025-03-20T12:56:22,462][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-elastic-ai-assistant-component-template-conversations]
-[2025-03-20T12:56:22,495][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-ecs-mappings]
-[2025-03-20T12:56:22,524][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-data-quality-dashboard-ecs-mappings]
-[2025-03-20T12:56:22,527][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.slo-observability.sli-settings]
-[2025-03-20T12:56:22,529][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.slo-observability.summary-settings]
-[2025-03-20T12:56:22,534][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.slo-observability.summary-mappings]
-[2025-03-20T12:56:22,538][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.slo-observability.sli-mappings]
-[2025-03-20T12:56:22,591][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.apm-agent-configuration] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:22,591][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.apm-agent-configuration]
-[2025-03-20T12:56:22,597][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-conversations] for index patterns [.kibana-elastic-ai-assistant-conversations-*]
-[2025-03-20T12:56:22,616][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-data-quality-dashboard-results-index-template] for index patterns [.kibana-data-quality-dashboard-results-*]
-[2025-03-20T12:56:22,629][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.apm-custom-link] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:56:22,631][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.apm-custom-link]
-[2025-03-20T12:56:22,687][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-event-log-template] for index patterns [.kibana-event-log-ds]
-[2025-03-20T12:56:22,692][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.slo-observability.sli] for index patterns [.slo-observability.sli-*]
-[2025-03-20T12:56:22,696][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-conversations] for index patterns [.kibana-elastic-ai-assistant-conversations-*]
-[2025-03-20T12:56:22,720][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-data-quality-dashboard-results-index-template] for index patterns [.kibana-data-quality-dashboard-results-*]
-[2025-03-20T12:56:22,770][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.kibana_security_session_1] creating index, cause [api], templates [], shards [1]/[0]
-[2025-03-20T12:56:22,875][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.apm-source-map] creating index, cause [api], templates [apm-source-map], shards [1]/[1]
-[2025-03-20T12:56:22,876][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.apm-source-map]
-[2025-03-20T12:56:22,948][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.slo-observability.summary] for index patterns [.slo-observability.summary-*]
-[2025-03-20T12:56:22,956][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-elastic-ai-assistant-component-template-knowledge-base]
-[2025-03-20T12:56:23,001][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-knowledge-base] for index patterns [.kibana-elastic-ai-assistant-knowledge-base-*]
-[2025-03-20T12:56:23,043][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.slo-observability.sli-v3.3] creating index, cause [api], templates [.slo-observability.sli], shards [1]/[1]
-[2025-03-20T12:56:23,045][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.slo-observability.sli-v3.3]
-[2025-03-20T12:56:23,086][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-knowledge-base] for index patterns [.kibana-elastic-ai-assistant-knowledge-base-*]
-[2025-03-20T12:56:23,230][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-elastic-ai-assistant-component-template-prompts]
-[2025-03-20T12:56:23,276][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-prompts] for index patterns [.kibana-elastic-ai-assistant-prompts-*]
-[2025-03-20T12:56:23,310][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-prompts] for index patterns [.kibana-elastic-ai-assistant-prompts-*]
-[2025-03-20T12:56:23,355][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.slo-observability.summary-v3.3] creating index, cause [api], templates [.slo-observability.summary], shards [1]/[1]
-[2025-03-20T12:56:23,356][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.slo-observability.summary-v3.3]
-[2025-03-20T12:56:23,396][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-elastic-ai-assistant-component-template-anonymization-fields]
-[2025-03-20T12:56:23,444][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-anonymization-fields] for index patterns [.kibana-elastic-ai-assistant-anonymization-fields-*]
-[2025-03-20T12:56:23,491][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-anonymization-fields] for index patterns [.kibana-elastic-ai-assistant-anonymization-fields-*]
-[2025-03-20T12:56:23,589][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.kibana-elastic-ai-assistant-component-template-attack-discovery]
-[2025-03-20T12:56:23,635][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.slo-observability.summary-v3.3.temp] creating index, cause [api], templates [.slo-observability.summary], shards [1]/[1]
-[2025-03-20T12:56:23,636][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.slo-observability.summary-v3.3.temp]
-[2025-03-20T12:56:23,638][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-attack-discovery] for index patterns [.kibana-elastic-ai-assistant-attack-discovery-*]
-[2025-03-20T12:56:23,722][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.kibana-elastic-ai-assistant-index-template-attack-discovery] for index patterns [.kibana-elastic-ai-assistant-attack-discovery-*]
-[2025-03-20T12:56:23,804][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-.kibana-event-log-ds-2025.03.20-000001] creating index, cause [initialize_data_stream], templates [.kibana-event-log-template], shards [1]/[1]
-[2025-03-20T12:56:23,805][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.ds-.kibana-event-log-ds-2025.03.20-000001]
-[2025-03-20T12:56:23,807][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [.kibana-event-log-ds] with write index [.ds-.kibana-event-log-ds-2025.03.20-000001], backing indices [], and aliases []
-[2025-03-20T12:56:23,899][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [.alerts-ilm-policy]
-[2025-03-20T12:56:23,954][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-default.alerts-default-index-template] for index patterns [.internal.alerts-default.alerts-default-*]
-[2025-03-20T12:56:23,983][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-ml.anomaly-detection.alerts-mappings]
-[2025-03-20T12:56:23,987][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.slo.alerts-mappings]
-[2025-03-20T12:56:23,990][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-transform.health.alerts-mappings]
-[2025-03-20T12:56:23,992][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.threshold.alerts-mappings]
-[2025-03-20T12:56:23,995][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-ml.anomaly-detection-health.alerts-mappings]
-[2025-03-20T12:56:23,997][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-stack.alerts-mappings]
-[2025-03-20T12:56:24,000][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.metrics.alerts-mappings]
-[2025-03-20T12:56:24,001][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.logs.alerts-mappings]
-[2025-03-20T12:56:24,003][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.apm.alerts-mappings]
-[2025-03-20T12:56:24,006][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-observability.uptime.alerts-mappings]
-[2025-03-20T12:56:24,010][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.alerts-security.alerts-mappings]
-[2025-03-20T12:56:24,015][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-default.alerts-default-index-template] for index patterns [.internal.alerts-default.alerts-default-*]
-[2025-03-20T12:56:24,057][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [kibana-reporting]
-[2025-03-20T12:56:24,076][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-ml.anomaly-detection-health.alerts-default-index-template] for index patterns [.internal.alerts-ml.anomaly-detection-health.alerts-default-*]
-[2025-03-20T12:56:24,077][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-transform.health.alerts-default-index-template] for index patterns [.internal.alerts-transform.health.alerts-default-*]
-[2025-03-20T12:56:24,078][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-ml.anomaly-detection.alerts-default-index-template] for index patterns [.internal.alerts-ml.anomaly-detection.alerts-default-*]
-[2025-03-20T12:56:24,082][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.apm.alerts-default-index-template] for index patterns [.internal.alerts-observability.apm.alerts-default-*]
-[2025-03-20T12:56:24,089][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.metrics.alerts-default-index-template] for index patterns [.internal.alerts-observability.metrics.alerts-default-*]
-[2025-03-20T12:56:24,089][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.logs.alerts-default-index-template] for index patterns [.internal.alerts-observability.logs.alerts-default-*]
-[2025-03-20T12:56:24,089][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.slo.alerts-default-index-template] for index patterns [.internal.alerts-observability.slo.alerts-default-*]
-[2025-03-20T12:56:24,092][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.threshold.alerts-default-index-template] for index patterns [.internal.alerts-observability.threshold.alerts-default-*]
-[2025-03-20T12:56:24,092][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-stack.alerts-default-index-template] for index patterns [.internal.alerts-stack.alerts-default-*]
-[2025-03-20T12:56:24,116][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-default.alerts-default-000001] creating index, cause [api], templates [.alerts-default.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,118][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-default.alerts-default-000001]
-[2025-03-20T12:56:24,119][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.uptime.alerts-default-index-template] for index patterns [.internal.alerts-observability.uptime.alerts-default-*]
-[2025-03-20T12:56:24,137][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-security.alerts-default-index-template] for index patterns [.internal.alerts-security.alerts-default-*]
-[2025-03-20T12:56:24,190][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-transform.health.alerts-default-index-template] for index patterns [.internal.alerts-transform.health.alerts-default-*]
-[2025-03-20T12:56:24,195][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.apm.alerts-default-index-template] for index patterns [.internal.alerts-observability.apm.alerts-default-*]
-[2025-03-20T12:56:24,199][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [kibana-reporting@custom]
-[2025-03-20T12:56:24,203][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-ml.anomaly-detection-health.alerts-default-index-template] for index patterns [.internal.alerts-ml.anomaly-detection-health.alerts-default-*]
-[2025-03-20T12:56:24,208][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.uptime.alerts-default-index-template] for index patterns [.internal.alerts-observability.uptime.alerts-default-*]
-[2025-03-20T12:56:24,222][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.metrics.alerts-default-index-template] for index patterns [.internal.alerts-observability.metrics.alerts-default-*]
-[2025-03-20T12:56:24,239][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-stack.alerts-default-index-template] for index patterns [.internal.alerts-stack.alerts-default-*]
-[2025-03-20T12:56:24,342][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.logs.alerts-default-index-template] for index patterns [.internal.alerts-observability.logs.alerts-default-*]
-[2025-03-20T12:56:24,357][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.slo.alerts-default-index-template] for index patterns [.internal.alerts-observability.slo.alerts-default-*]
-[2025-03-20T12:56:24,371][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-observability.threshold.alerts-default-index-template] for index patterns [.internal.alerts-observability.threshold.alerts-default-*]
-[2025-03-20T12:56:24,376][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-ml.anomaly-detection.alerts-default-index-template] for index patterns [.internal.alerts-ml.anomaly-detection.alerts-default-*]
-[2025-03-20T12:56:24,391][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [.alerts-security.alerts-default-index-template] for index patterns [.internal.alerts-security.alerts-default-*]
-[2025-03-20T12:56:24,446][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-transform.health.alerts-default-000001] creating index, cause [api], templates [.alerts-transform.health.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,447][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-transform.health.alerts-default-000001]
-[2025-03-20T12:56:24,496][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.apm.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.apm.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,497][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.apm.alerts-default-000001]
-[2025-03-20T12:56:24,551][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-ml.anomaly-detection-health.alerts-default-000001] creating index, cause [api], templates [.alerts-ml.anomaly-detection-health.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,552][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-ml.anomaly-detection-health.alerts-default-000001]
-[2025-03-20T12:56:24,634][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.metrics.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.metrics.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,635][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.metrics.alerts-default-000001]
-[2025-03-20T12:56:24,695][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.uptime.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.uptime.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,696][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.uptime.alerts-default-000001]
-[2025-03-20T12:56:24,762][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-stack.alerts-default-000001] creating index, cause [api], templates [.alerts-stack.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,763][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-stack.alerts-default-000001]
-[2025-03-20T12:56:24,873][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.logs.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.logs.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:24,875][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.logs.alerts-default-000001]
-[2025-03-20T12:56:25,001][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.threshold.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.threshold.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:25,003][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.threshold.alerts-default-000001]
-[2025-03-20T12:56:25,099][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-observability.slo.alerts-default-000001] creating index, cause [api], templates [.alerts-observability.slo.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:25,100][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-observability.slo.alerts-default-000001]
-[2025-03-20T12:56:25,152][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-ml.anomaly-detection.alerts-default-000001] creating index, cause [api], templates [.alerts-ml.anomaly-detection.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:25,153][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-ml.anomaly-detection.alerts-default-000001]
-[2025-03-20T12:56:25,269][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.internal.alerts-security.alerts-default-000001] creating index, cause [api], templates [.alerts-security.alerts-default-index-template], shards [1]/[1]
-[2025-03-20T12:56:25,271][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.internal.alerts-security.alerts-default-000001]
-[2025-03-20T12:56:25,402][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [.preview.alerts-security.alerts-policy]
-[2025-03-20T12:56:25,578][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.preview.alerts-security.alerts-mappings]
-[2025-03-20T12:56:25,684][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-default.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,685][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-transform.health.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,686][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.apm.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,687][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection-health.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,687][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.metrics.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,687][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.uptime.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,688][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-stack.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,688][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.logs.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,689][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.threshold.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,689][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.slo.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,690][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,691][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-security.alerts-default-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,737][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-security.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,738][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-transform.health.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,739][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,739][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.uptime.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,740][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.apm.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,740][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.logs.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,741][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-default.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,741][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.threshold.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,742][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection-health.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,742][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.metrics.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,743][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.slo.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,744][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-stack.alerts-default-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,792][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-security.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,793][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-transform.health.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,793][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,795][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.uptime.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,795][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.apm.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,796][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.logs.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,796][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-default.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,796][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.threshold.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,797][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-ml.anomaly-detection-health.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,798][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.metrics.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,799][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-observability.slo.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:25,799][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.internal.alerts-stack.alerts-default-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [.alerts-ilm-policy]
-[2025-03-20T12:56:26,678][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.fleet_agent_id_verification-1]
-[2025-03-20T12:56:26,729][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [.fleet_globals-1]
-[2025-03-20T12:56:28,771][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.icmp-default_policy]
-[2025-03-20T12:56:28,817][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.browser-default_policy]
-[2025-03-20T12:56:28,865][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.browser_network-default_policy]
-[2025-03-20T12:56:28,912][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.browser_screenshot-default_policy]
-[2025-03-20T12:56:28,959][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.tcp-default_policy]
-[2025-03-20T12:56:29,005][INFO ][o.e.x.i.a.TransportPutLifecycleAction] [DESKTOP-3GTEBD7] adding index lifecycle policy [synthetics-synthetics.http-default_policy]
-[2025-03-20T12:56:29,170][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-browser.network@package]
-[2025-03-20T12:56:29,175][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-browser@package]
-[2025-03-20T12:56:29,180][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-http@package]
-[2025-03-20T12:56:29,186][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-browser.screenshot@package]
-[2025-03-20T12:56:29,191][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-tcp@package]
-[2025-03-20T12:56:29,195][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding component template [synthetics-icmp@package]
-[2025-03-20T12:56:29,298][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-browser.network] for index patterns [synthetics-browser.network-*]
-[2025-03-20T12:56:29,305][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-http] for index patterns [synthetics-http-*]
-[2025-03-20T12:56:29,312][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-browser] for index patterns [synthetics-browser-*]
-[2025-03-20T12:56:29,316][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-browser.screenshot] for index patterns [synthetics-browser.screenshot-*]
-[2025-03-20T12:56:29,322][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-icmp] for index patterns [synthetics-icmp-*]
-[2025-03-20T12:56:29,328][INFO ][o.e.c.m.MetadataIndexTemplateService] [DESKTOP-3GTEBD7] adding index template [synthetics-tcp] for index patterns [synthetics-tcp-*]
-[2025-03-20T12:58:07,418][INFO ][o.e.x.s.s.SecurityIndexManager] [DESKTOP-3GTEBD7] security index does not exist, creating [.security-profile-8] with alias [.security-profile]
-[2025-03-20T12:58:07,431][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.security-profile-8] creating index, cause [api], templates [], shards [1]/[1]
-[2025-03-20T12:58:07,432][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] updating number_of_replicas to [0] for indices [.security-profile-8]
-[2025-03-20T13:03:13,499][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-.logs-deprecation.elasticsearch-default-2025.02.26-000001/XD-7sSWeS_qK3Nm_j0oXUA] update_mapping [_doc]
-[2025-03-20T13:31:45,376][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopping ...
-[2025-03-20T13:31:45,378][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] shutting down watcher thread
-[2025-03-20T13:31:45,379][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] watcher service stopped
-[2025-03-20T13:31:45,379][INFO ][o.e.x.w.WatcherService   ] [DESKTOP-3GTEBD7] stopping watch service, reason [shutdown initiated]
-[2025-03-20T13:31:45,380][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [DESKTOP-3GTEBD7] Stopping watcher engine
-[2025-03-20T13:31:45,380][INFO ][o.e.x.w.WatcherLifeCycleService] [DESKTOP-3GTEBD7] watcher has stopped and shutdown
-[2025-03-20T13:31:45,380][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/13684] [Main.cc@176] ML controller exiting
-[2025-03-20T13:31:45,381][INFO ][o.e.x.m.p.NativeController] [DESKTOP-3GTEBD7] Native controller process has stopped - no new native processes can be started
-[2025-03-20T13:31:45,749][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopped
-[2025-03-20T13:31:45,749][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closing ...
-[2025-03-20T13:31:45,764][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closed
-[2025-03-20T13:31:54,474][INFO ][o.e.n.NativeAccess       ] [DESKTOP-3GTEBD7] Using [jdk] native provider and native methods for [Windows]
-[2025-03-20T13:31:54,602][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [DESKTOP-3GTEBD7] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
-[2025-03-20T13:31:54,602][INFO ][o.e.j.JarHell            ] [DESKTOP-3GTEBD7] Bootstrapping java SecurityManager
-[2025-03-20T13:31:56,213][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] version[8.17.2], pid[29372], build[zip/747663ddda3421467150de0e4301e8d4bc636b0c/2025-02-05T22:10:57.067596412Z], OS[Windows 11/10.0/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/23/23+37-2369]
-[2025-03-20T13:31:56,215][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM home [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\jdk], using bundled JDK [true]
-[2025-03-20T13:31:56,215][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Des.distribution.type=zip, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, -XX:ReplayDataFile=logs/replay_pid%p.log, -Djava.security.manager=allow, -XX:+UseG1GC, -Djava.io.tmpdir=C:\Users\Ludvi\AppData\Local\Temp\elasticsearch, --add-modules=jdk.incubator.vector, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.setAsTypeCache, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.asTypeUncached, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms8148m, -Xmx8148m, -XX:MaxDirectMemorySize=4271898624, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
-[2025-03-20T13:31:56,216][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] Default Locale [no_NO]
-[2025-03-20T13:31:59,723][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-url]
-[2025-03-20T13:31:59,723][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rest-root]
-[2025-03-20T13:31:59,724][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-core]
-[2025-03-20T13:31:59,724][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-redact]
-[2025-03-20T13:31:59,724][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-user-agent]
-[2025-03-20T13:31:59,724][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async-search]
-[2025-03-20T13:31:59,726][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-monitoring]
-[2025-03-20T13:31:59,726][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-s3]
-[2025-03-20T13:31:59,727][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-analytics]
-[2025-03-20T13:31:59,727][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql-core]
-[2025-03-20T13:31:59,728][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ent-search]
-[2025-03-20T13:31:59,728][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-autoscaling]
-[2025-03-20T13:31:59,729][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-painless]
-[2025-03-20T13:31:59,729][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ml]
-[2025-03-20T13:31:59,730][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-mustache]
-[2025-03-20T13:31:59,730][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [legacy-geo]
-[2025-03-20T13:31:59,730][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [logsdb]
-[2025-03-20T13:31:59,731][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ql]
-[2025-03-20T13:31:59,731][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-rrf]
-[2025-03-20T13:31:59,732][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [analysis-common]
-[2025-03-20T13:31:59,732][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [health-shards-availability]
-[2025-03-20T13:31:59,733][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transport-netty4]
-[2025-03-20T13:31:59,733][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [aggregations]
-[2025-03-20T13:31:59,733][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-common]
-[2025-03-20T13:31:59,734][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [frozen-indices]
-[2025-03-20T13:31:59,734][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-identity-provider]
-[2025-03-20T13:31:59,734][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-shutdown]
-[2025-03-20T13:31:59,736][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-text-structure]
-[2025-03-20T13:31:59,736][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-repo-test-kit]
-[2025-03-20T13:31:59,737][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ml-package-loader]
-[2025-03-20T13:31:59,737][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [kibana]
-[2025-03-20T13:31:59,738][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [constant-keyword]
-[2025-03-20T13:31:59,738][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-logstash]
-[2025-03-20T13:31:59,738][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ccr]
-[2025-03-20T13:31:59,739][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-graph]
-[2025-03-20T13:31:59,739][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql]
-[2025-03-20T13:31:59,740][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [parent-join]
-[2025-03-20T13:31:59,740][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [counted-keyword]
-[2025-03-20T13:31:59,741][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-enrich]
-[2025-03-20T13:31:59,741][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repositories-metering-api]
-[2025-03-20T13:31:59,741][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transform]
-[2025-03-20T13:31:59,742][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-azure]
-[2025-03-20T13:31:59,743][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [dot-prefix-validation]
-[2025-03-20T13:31:59,743][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-gcs]
-[2025-03-20T13:31:59,743][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [spatial]
-[2025-03-20T13:31:59,744][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-otel-data]
-[2025-03-20T13:31:59,746][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [apm]
-[2025-03-20T13:31:59,746][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-extras]
-[2025-03-20T13:31:59,747][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-version]
-[2025-03-20T13:31:59,747][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-rollup]
-[2025-03-20T13:31:59,748][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [percolator]
-[2025-03-20T13:31:59,748][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [data-streams]
-[2025-03-20T13:31:59,748][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-stack]
-[2025-03-20T13:31:59,749][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-eval]
-[2025-03-20T13:31:59,749][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [reindex]
-[2025-03-20T13:31:59,750][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-security]
-[2025-03-20T13:31:59,750][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [blob-cache]
-[2025-03-20T13:31:59,751][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [searchable-snapshots]
-[2025-03-20T13:31:59,751][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-slm]
-[2025-03-20T13:31:59,752][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-geoip-enterprise-downloader]
-[2025-03-20T13:31:59,752][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-based-recoveries]
-[2025-03-20T13:31:59,753][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-watcher]
-[2025-03-20T13:31:59,753][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [old-lucene-versions]
-[2025-03-20T13:31:59,753][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ilm]
-[2025-03-20T13:31:59,754][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-inference]
-[2025-03-20T13:31:59,754][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-voting-only-node]
-[2025-03-20T13:31:59,755][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-deprecation]
-[2025-03-20T13:31:59,755][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-fleet]
-[2025-03-20T13:31:59,756][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-aggregate-metric]
-[2025-03-20T13:31:59,756][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-downsample]
-[2025-03-20T13:31:59,757][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-profiling]
-[2025-03-20T13:31:59,757][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-geoip]
-[2025-03-20T13:31:59,757][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-write-load-forecaster]
-[2025-03-20T13:31:59,757][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [search-business-rules]
-[2025-03-20T13:31:59,758][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-attachment]
-[2025-03-20T13:31:59,758][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [wildcard]
-[2025-03-20T13:31:59,760][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-apm-data]
-[2025-03-20T13:31:59,761][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [unsigned-long]
-[2025-03-20T13:31:59,762][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-sql]
-[2025-03-20T13:31:59,762][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [runtime-fields-common]
-[2025-03-20T13:31:59,762][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async]
-[2025-03-20T13:31:59,763][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [vector-tile]
-[2025-03-20T13:31:59,763][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-kql]
-[2025-03-20T13:31:59,764][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-expression]
-[2025-03-20T13:31:59,764][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-eql]
-[2025-03-20T13:32:01,408][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] using [1] data paths, mounts [[(C:)]], net usable_space [108gb], net total_space [930.2gb], types [NTFS]
-[2025-03-20T13:32:01,409][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] heap size [7.9gb], compressed ordinary object pointers [true]
-[2025-03-20T13:32:01,590][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] node name [DESKTOP-3GTEBD7], node ID [eghVlMeGToeucHZ54u8vzg], cluster name [elasticsearch], roles [data_cold, data, remote_cluster_client, master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest]
-[2025-03-20T13:32:04,625][INFO ][o.e.i.r.RecoverySettings ] [DESKTOP-3GTEBD7] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
-[2025-03-20T13:32:04,791][INFO ][o.e.f.FeatureService     ] [DESKTOP-3GTEBD7] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, knn_retriever_supported, license-trial-independent-version, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.test, random_reranker_retriever_supported, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.vectors.k_param_supported, security.migration_framework, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.default_elser_2, semantic_text.search_inference_id, simulate.component.template.substitutions, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
-[2025-03-20T13:32:04,822][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated default factory retention to [null]
-[2025-03-20T13:32:04,823][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated max factory retention to [null]
-[2025-03-20T13:32:05,287][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28536] [Main.cc@123] controller (64 bit): Version 8.17.2 (Build 002b4653bd15a4) Copyright (c) 2025 Elasticsearch BV
-[2025-03-20T13:32:05,627][INFO ][o.e.x.o.OTelPlugin       ] [DESKTOP-3GTEBD7] OTel ingest plugin is enabled
-[2025-03-20T13:32:05,648][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] OpenTelemetry index template registry is enabled
-[2025-03-20T13:32:05,651][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm metrics is disabled
-[2025-03-20T13:32:05,652][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm tracing is disabled
-[2025-03-20T13:32:05,678][INFO ][o.e.x.s.Security         ] [DESKTOP-3GTEBD7] Security is enabled
-[2025-03-20T13:32:05,997][INFO ][o.e.x.s.a.s.FileRolesStore] [DESKTOP-3GTEBD7] parsed [0] roles from file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\roles.yml]
-[2025-03-20T13:32:06,303][INFO ][o.e.x.w.Watcher          ] [DESKTOP-3GTEBD7] Watcher initialized components at 2025-03-20T12:32:06.303Z
-[2025-03-20T13:32:06,372][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] Profiling is enabled
-[2025-03-20T13:32:06,388][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] profiling index templates will not be installed or reinstalled
-[2025-03-20T13:32:06,393][INFO ][o.e.x.a.APMPlugin        ] [DESKTOP-3GTEBD7] APM ingest plugin is enabled
-[2025-03-20T13:32:06,422][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] apm index template registry is enabled
-[2025-03-20T13:32:06,809][INFO ][o.e.t.n.NettyAllocator   ] [DESKTOP-3GTEBD7] creating NettyAllocator with the following configs: [name=elasticsearch_configured, chunk_size=1mb, suggested_max_allocation_size=1mb, factors={es.unsafe.use_netty_default_chunk_and_page_size=false, g1gc_enabled=true, g1gc_region_size=4mb}]
-[2025-03-20T13:32:06,856][INFO ][o.e.d.DiscoveryModule    ] [DESKTOP-3GTEBD7] using discovery type [multi-node] and seed hosts providers [settings]
-[2025-03-20T13:32:07,844][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] initialized
-[2025-03-20T13:32:07,844][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] starting ...
-[2025-03-20T13:32:07,874][INFO ][o.e.x.s.c.f.PersistentCache] [DESKTOP-3GTEBD7] persistent cache index loaded
-[2025-03-20T13:32:07,874][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [DESKTOP-3GTEBD7] deprecation component started
-[2025-03-20T13:32:07,946][INFO ][o.e.t.TransportService   ] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
-[2025-03-20T13:32:08,622][WARN ][o.e.b.BootstrapChecks    ] [DESKTOP-3GTEBD7] Transport SSL must be enabled if security is enabled. Please set [xpack.security.transport.ssl.enabled] to [true] or disable security by setting [xpack.security.enabled] to [false]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/8.17/bootstrap-checks-xpack.html#bootstrap-checks-tls]
-[2025-03-20T13:32:08,624][WARN ][o.e.c.c.ClusterBootstrapService] [DESKTOP-3GTEBD7] this node is locked into cluster UUID [q4xX1Hd5REudhXCkiA9LXw] but [cluster.initial_master_nodes] is set to [DESKTOP-3GTEBD7]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.17/important-settings.html#initial_master_nodes
-[2025-03-20T13:32:08,755][INFO ][o.e.c.s.MasterService    ] [DESKTOP-3GTEBD7] elected-as-master ([1] nodes joined in term 19)[_FINISH_ELECTION_, {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{TVsoQoxVRe2H2rKgIfRSVQ}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000} completing election], term: 19, version: 395, delta: master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{TVsoQoxVRe2H2rKgIfRSVQ}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}
-[2025-03-20T13:32:08,811][INFO ][o.e.c.s.ClusterApplierService] [DESKTOP-3GTEBD7] master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{TVsoQoxVRe2H2rKgIfRSVQ}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}, term: 19, version: 395, reason: Publication{term=19, version=395}
-[2025-03-20T13:32:08,840][INFO ][o.e.c.c.NodeJoinExecutor ] [DESKTOP-3GTEBD7] node-join: [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{TVsoQoxVRe2H2rKgIfRSVQ}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}] with reason [completing election]
-[2025-03-20T13:32:08,841][INFO ][o.e.h.AbstractHttpServerTransport] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
-[2025-03-20T13:32:08,860][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] started {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{TVsoQoxVRe2H2rKgIfRSVQ}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}{ml.machine_memory=17088503808, transform.config_version=10.0.0, xpack.installed=true, ml.config_version=12.0.0, ml.max_jvm_size=8543797248, ml.allocated_processors_double=24.0, ml.allocated_processors=24}
-[2025-03-20T13:32:09,094][INFO ][o.e.x.s.a.Realms         ] [DESKTOP-3GTEBD7] license mode is [basic], currently licensed security realms are [reserved/reserved,file/default_file,native/default_native]
-[2025-03-20T13:32:09,098][INFO ][o.e.l.ClusterStateLicenseService] [DESKTOP-3GTEBD7] license [79293fc9-c321-44d4-91ac-f3ff191d72b8] mode [basic] - valid
-[2025-03-20T13:32:09,101][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] starting file watcher ...
-[2025-03-20T13:32:09,107][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] file settings service up and running [tid=107]
-[2025-03-20T13:32:09,107][INFO ][o.e.g.GatewayService     ] [DESKTOP-3GTEBD7] recovered [38] indices into cluster_state
-[2025-03-20T13:32:09,108][INFO ][o.e.r.s.FileSettingsService] [DESKTOP-3GTEBD7] setting file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\operator\settings.json] not found, initializing [file_settings] as empty
-[2025-03-20T13:32:09,383][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [DESKTOP-3GTEBD7] Node [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}] is selected as the current health node.
-[2025-03-20T13:32:10,590][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] current.health="YELLOW" message="Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.ds-ilm-history-7-2025.02.26-000001][0]]])." previous.health="RED" reason="shards started [[.ds-ilm-history-7-2025.02.26-000001][0]]"
-[2025-03-20T13:32:38,874][INFO ][o.e.c.r.a.DiskThresholdMonitor] [DESKTOP-3GTEBD7] low disk watermark [85%] exceeded on [eghVlMeGToeucHZ54u8vzg][DESKTOP-3GTEBD7][C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\data] free: 108gb[11.6%], replicas will not be assigned to this node
-[2025-03-20T13:36:27,759][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopping ...
-[2025-03-20T13:36:27,760][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] shutting down watcher thread
-[2025-03-20T13:36:27,761][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] watcher service stopped
-[2025-03-20T13:36:27,763][INFO ][o.e.x.w.WatcherService   ] [DESKTOP-3GTEBD7] stopping watch service, reason [shutdown initiated]
-[2025-03-20T13:36:27,764][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [DESKTOP-3GTEBD7] Stopping watcher engine
-[2025-03-20T13:36:27,764][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28536] [Main.cc@176] ML controller exiting
-[2025-03-20T13:36:27,764][INFO ][o.e.x.w.WatcherLifeCycleService] [DESKTOP-3GTEBD7] watcher has stopped and shutdown
-[2025-03-20T13:36:27,765][INFO ][o.e.x.m.p.NativeController] [DESKTOP-3GTEBD7] Native controller process has stopped - no new native processes can be started
-[2025-03-20T13:36:28,096][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopped
-[2025-03-20T13:36:28,096][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closing ...
-[2025-03-20T13:36:28,110][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closed
-[2025-03-20T13:36:36,268][INFO ][o.e.n.NativeAccess       ] [DESKTOP-3GTEBD7] Using [jdk] native provider and native methods for [Windows]
-[2025-03-20T13:36:36,377][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [DESKTOP-3GTEBD7] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
-[2025-03-20T13:36:36,377][INFO ][o.e.j.JarHell            ] [DESKTOP-3GTEBD7] Bootstrapping java SecurityManager
-[2025-03-20T13:36:38,009][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] version[8.17.2], pid[9684], build[zip/747663ddda3421467150de0e4301e8d4bc636b0c/2025-02-05T22:10:57.067596412Z], OS[Windows 11/10.0/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/23/23+37-2369]
-[2025-03-20T13:36:38,011][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM home [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\jdk], using bundled JDK [true]
-[2025-03-20T13:36:38,012][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Des.distribution.type=zip, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, -XX:ReplayDataFile=logs/replay_pid%p.log, -Djava.security.manager=allow, -XX:+UseG1GC, -Djava.io.tmpdir=C:\Users\Ludvi\AppData\Local\Temp\elasticsearch, --add-modules=jdk.incubator.vector, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.setAsTypeCache, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.asTypeUncached, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms8148m, -Xmx8148m, -XX:MaxDirectMemorySize=4271898624, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
-[2025-03-20T13:36:38,015][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] Default Locale [no_NO]
-[2025-03-20T13:36:41,654][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-url]
-[2025-03-20T13:36:41,655][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rest-root]
-[2025-03-20T13:36:41,655][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-core]
-[2025-03-20T13:36:41,656][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-redact]
-[2025-03-20T13:36:41,656][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-user-agent]
-[2025-03-20T13:36:41,656][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async-search]
-[2025-03-20T13:36:41,658][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-monitoring]
-[2025-03-20T13:36:41,658][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-s3]
-[2025-03-20T13:36:41,659][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-analytics]
-[2025-03-20T13:36:41,659][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql-core]
-[2025-03-20T13:36:41,660][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ent-search]
-[2025-03-20T13:36:41,660][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-autoscaling]
-[2025-03-20T13:36:41,661][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-painless]
-[2025-03-20T13:36:41,661][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ml]
-[2025-03-20T13:36:41,661][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-mustache]
-[2025-03-20T13:36:41,662][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [legacy-geo]
-[2025-03-20T13:36:41,662][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [logsdb]
-[2025-03-20T13:36:41,662][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ql]
-[2025-03-20T13:36:41,663][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-rrf]
-[2025-03-20T13:36:41,663][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [analysis-common]
-[2025-03-20T13:36:41,663][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [health-shards-availability]
-[2025-03-20T13:36:41,663][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transport-netty4]
-[2025-03-20T13:36:41,665][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [aggregations]
-[2025-03-20T13:36:41,665][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-common]
-[2025-03-20T13:36:41,666][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [frozen-indices]
-[2025-03-20T13:36:41,666][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-identity-provider]
-[2025-03-20T13:36:41,667][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-shutdown]
-[2025-03-20T13:36:41,667][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-text-structure]
-[2025-03-20T13:36:41,668][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-repo-test-kit]
-[2025-03-20T13:36:41,668][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ml-package-loader]
-[2025-03-20T13:36:41,669][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [kibana]
-[2025-03-20T13:36:41,669][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [constant-keyword]
-[2025-03-20T13:36:41,670][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-logstash]
-[2025-03-20T13:36:41,671][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ccr]
-[2025-03-20T13:36:41,672][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-graph]
-[2025-03-20T13:36:41,672][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql]
-[2025-03-20T13:36:41,672][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [parent-join]
-[2025-03-20T13:36:41,674][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [counted-keyword]
-[2025-03-20T13:36:41,674][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-enrich]
-[2025-03-20T13:36:41,674][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repositories-metering-api]
-[2025-03-20T13:36:41,675][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transform]
-[2025-03-20T13:36:41,675][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-azure]
-[2025-03-20T13:36:41,676][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [dot-prefix-validation]
-[2025-03-20T13:36:41,676][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-gcs]
-[2025-03-20T13:36:41,677][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [spatial]
-[2025-03-20T13:36:41,677][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-otel-data]
-[2025-03-20T13:36:41,677][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [apm]
-[2025-03-20T13:36:41,678][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-extras]
-[2025-03-20T13:36:41,679][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-version]
-[2025-03-20T13:36:41,679][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-rollup]
-[2025-03-20T13:36:41,680][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [percolator]
-[2025-03-20T13:36:41,681][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [data-streams]
-[2025-03-20T13:36:41,681][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-stack]
-[2025-03-20T13:36:41,681][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-eval]
-[2025-03-20T13:36:41,681][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [reindex]
-[2025-03-20T13:36:41,682][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-security]
-[2025-03-20T13:36:41,683][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [blob-cache]
-[2025-03-20T13:36:41,684][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [searchable-snapshots]
-[2025-03-20T13:36:41,684][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-slm]
-[2025-03-20T13:36:41,684][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-geoip-enterprise-downloader]
-[2025-03-20T13:36:41,686][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-based-recoveries]
-[2025-03-20T13:36:41,687][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-watcher]
-[2025-03-20T13:36:41,688][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [old-lucene-versions]
-[2025-03-20T13:36:41,688][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ilm]
-[2025-03-20T13:36:41,689][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-inference]
-[2025-03-20T13:36:41,689][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-voting-only-node]
-[2025-03-20T13:36:41,689][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-deprecation]
-[2025-03-20T13:36:41,690][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-fleet]
-[2025-03-20T13:36:41,690][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-aggregate-metric]
-[2025-03-20T13:36:41,690][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-downsample]
-[2025-03-20T13:36:41,691][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-profiling]
-[2025-03-20T13:36:41,691][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-geoip]
-[2025-03-20T13:36:41,692][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-write-load-forecaster]
-[2025-03-20T13:36:41,694][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [search-business-rules]
-[2025-03-20T13:36:41,694][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-attachment]
-[2025-03-20T13:36:41,695][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [wildcard]
-[2025-03-20T13:36:41,695][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-apm-data]
-[2025-03-20T13:36:41,696][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [unsigned-long]
-[2025-03-20T13:36:41,696][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-sql]
-[2025-03-20T13:36:41,697][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [runtime-fields-common]
-[2025-03-20T13:36:41,697][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async]
-[2025-03-20T13:36:41,698][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [vector-tile]
-[2025-03-20T13:36:41,698][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-kql]
-[2025-03-20T13:36:41,698][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-expression]
-[2025-03-20T13:36:41,699][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-eql]
-[2025-03-20T13:36:43,035][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] using [1] data paths, mounts [[(C:)]], net usable_space [108gb], net total_space [930.2gb], types [NTFS]
-[2025-03-20T13:36:43,036][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] heap size [7.9gb], compressed ordinary object pointers [true]
-[2025-03-20T13:36:43,190][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] node name [DESKTOP-3GTEBD7], node ID [eghVlMeGToeucHZ54u8vzg], cluster name [elasticsearch], roles [master, data_warm, data_content, transform, data_hot, ml, data_frozen, ingest, data_cold, data, remote_cluster_client]
-[2025-03-20T13:36:45,980][INFO ][o.e.i.r.RecoverySettings ] [DESKTOP-3GTEBD7] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
-[2025-03-20T13:36:46,135][INFO ][o.e.f.FeatureService     ] [DESKTOP-3GTEBD7] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, knn_retriever_supported, license-trial-independent-version, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.test, random_reranker_retriever_supported, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.vectors.k_param_supported, security.migration_framework, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.default_elser_2, semantic_text.search_inference_id, simulate.component.template.substitutions, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
-[2025-03-20T13:36:46,167][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated default factory retention to [null]
-[2025-03-20T13:36:46,168][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated max factory retention to [null]
-[2025-03-20T13:36:46,629][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28356] [Main.cc@123] controller (64 bit): Version 8.17.2 (Build 002b4653bd15a4) Copyright (c) 2025 Elasticsearch BV
-[2025-03-20T13:36:46,996][INFO ][o.e.x.o.OTelPlugin       ] [DESKTOP-3GTEBD7] OTel ingest plugin is enabled
-[2025-03-20T13:36:47,019][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] OpenTelemetry index template registry is enabled
-[2025-03-20T13:36:47,022][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm metrics is disabled
-[2025-03-20T13:36:47,022][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm tracing is disabled
-[2025-03-20T13:36:47,053][INFO ][o.e.x.s.Security         ] [DESKTOP-3GTEBD7] Security is enabled
-[2025-03-20T13:36:47,320][INFO ][o.e.x.s.a.s.FileRolesStore] [DESKTOP-3GTEBD7] parsed [0] roles from file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\roles.yml]
-[2025-03-20T13:36:47,705][INFO ][o.e.x.w.Watcher          ] [DESKTOP-3GTEBD7] Watcher initialized components at 2025-03-20T12:36:47.705Z
-[2025-03-20T13:36:47,784][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] Profiling is enabled
-[2025-03-20T13:36:47,800][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] profiling index templates will not be installed or reinstalled
-[2025-03-20T13:36:47,804][INFO ][o.e.x.a.APMPlugin        ] [DESKTOP-3GTEBD7] APM ingest plugin is enabled
-[2025-03-20T13:36:47,838][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] apm index template registry is enabled
-[2025-03-20T13:36:48,250][INFO ][o.e.t.n.NettyAllocator   ] [DESKTOP-3GTEBD7] creating NettyAllocator with the following configs: [name=elasticsearch_configured, chunk_size=1mb, suggested_max_allocation_size=1mb, factors={es.unsafe.use_netty_default_chunk_and_page_size=false, g1gc_enabled=true, g1gc_region_size=4mb}]
-[2025-03-20T13:36:48,299][INFO ][o.e.d.DiscoveryModule    ] [DESKTOP-3GTEBD7] using discovery type [multi-node] and seed hosts providers [settings]
-[2025-03-20T13:36:49,321][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] initialized
-[2025-03-20T13:36:49,321][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] starting ...
-[2025-03-20T13:36:49,350][INFO ][o.e.x.s.c.f.PersistentCache] [DESKTOP-3GTEBD7] persistent cache index loaded
-[2025-03-20T13:36:49,350][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [DESKTOP-3GTEBD7] deprecation component started
-[2025-03-20T13:36:49,429][INFO ][o.e.t.TransportService   ] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
-[2025-03-20T13:36:50,067][WARN ][o.e.b.BootstrapChecks    ] [DESKTOP-3GTEBD7] Transport SSL must be enabled if security is enabled. Please set [xpack.security.transport.ssl.enabled] to [true] or disable security by setting [xpack.security.enabled] to [false]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/8.17/bootstrap-checks-xpack.html#bootstrap-checks-tls]
-[2025-03-20T13:36:50,069][WARN ][o.e.c.c.ClusterBootstrapService] [DESKTOP-3GTEBD7] this node is locked into cluster UUID [q4xX1Hd5REudhXCkiA9LXw] but [cluster.initial_master_nodes] is set to [DESKTOP-3GTEBD7]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.17/important-settings.html#initial_master_nodes
-[2025-03-20T13:36:50,162][INFO ][o.e.c.s.MasterService    ] [DESKTOP-3GTEBD7] elected-as-master ([1] nodes joined in term 20)[_FINISH_ELECTION_, {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{NiduvYB8SFKw5uxE7YL4sg}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000} completing election], term: 20, version: 436, delta: master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{NiduvYB8SFKw5uxE7YL4sg}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}
-[2025-03-20T13:36:50,223][INFO ][o.e.c.s.ClusterApplierService] [DESKTOP-3GTEBD7] master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{NiduvYB8SFKw5uxE7YL4sg}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}, term: 20, version: 436, reason: Publication{term=20, version=436}
-[2025-03-20T13:36:50,261][INFO ][o.e.c.c.NodeJoinExecutor ] [DESKTOP-3GTEBD7] node-join: [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{NiduvYB8SFKw5uxE7YL4sg}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}] with reason [completing election]
-[2025-03-20T13:36:50,262][INFO ][o.e.h.AbstractHttpServerTransport] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
-[2025-03-20T13:36:50,284][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] started {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{NiduvYB8SFKw5uxE7YL4sg}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}{xpack.installed=true, ml.config_version=12.0.0, ml.max_jvm_size=8543797248, ml.allocated_processors_double=24.0, ml.allocated_processors=24, ml.machine_memory=17088503808, transform.config_version=10.0.0}
-[2025-03-20T13:36:50,601][INFO ][o.e.x.s.a.Realms         ] [DESKTOP-3GTEBD7] license mode is [basic], currently licensed security realms are [reserved/reserved,file/default_file,native/default_native]
-[2025-03-20T13:36:50,605][INFO ][o.e.l.ClusterStateLicenseService] [DESKTOP-3GTEBD7] license [79293fc9-c321-44d4-91ac-f3ff191d72b8] mode [basic] - valid
-[2025-03-20T13:36:50,609][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] starting file watcher ...
-[2025-03-20T13:36:50,616][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] file settings service up and running [tid=106]
-[2025-03-20T13:36:50,616][INFO ][o.e.g.GatewayService     ] [DESKTOP-3GTEBD7] recovered [38] indices into cluster_state
-[2025-03-20T13:36:50,617][INFO ][o.e.r.s.FileSettingsService] [DESKTOP-3GTEBD7] setting file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\operator\settings.json] not found, initializing [file_settings] as empty
-[2025-03-20T13:36:50,960][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [DESKTOP-3GTEBD7] Node [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}] is selected as the current health node.
-[2025-03-20T13:36:51,965][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] current.health="YELLOW" message="Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.ds-ilm-history-7-2025.03.12-000002][0]]])." previous.health="RED" reason="shards started [[.ds-ilm-history-7-2025.03.12-000002][0]]"
-[2025-03-20T13:37:20,288][INFO ][o.e.c.r.a.DiskThresholdMonitor] [DESKTOP-3GTEBD7] low disk watermark [85%] exceeded on [eghVlMeGToeucHZ54u8vzg][DESKTOP-3GTEBD7][C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\data] free: 108gb[11.6%], replicas will not be assigned to this node
-[2025-03-20T13:38:42,203][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopping ...
-[2025-03-20T13:38:42,203][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] shutting down watcher thread
-[2025-03-20T13:38:42,204][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] watcher service stopped
-[2025-03-20T13:38:42,205][INFO ][o.e.x.w.WatcherService   ] [DESKTOP-3GTEBD7] stopping watch service, reason [shutdown initiated]
-[2025-03-20T13:38:42,205][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28356] [Main.cc@176] ML controller exiting
-[2025-03-20T13:38:42,205][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [DESKTOP-3GTEBD7] Stopping watcher engine
-[2025-03-20T13:38:42,206][INFO ][o.e.x.w.WatcherLifeCycleService] [DESKTOP-3GTEBD7] watcher has stopped and shutdown
-[2025-03-20T13:38:42,206][INFO ][o.e.x.m.p.NativeController] [DESKTOP-3GTEBD7] Native controller process has stopped - no new native processes can be started
-[2025-03-20T13:38:42,396][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopped
-[2025-03-20T13:38:42,397][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closing ...
-[2025-03-20T13:38:42,410][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closed
+[2025-03-25T13:59:52,736][INFO ][o.e.n.NativeAccess       ] [DESKTOP-3GTEBD7] Using [jdk] native provider and native methods for [Windows]
+[2025-03-25T13:59:52,978][INFO ][o.a.l.i.v.PanamaVectorizationProvider] [DESKTOP-3GTEBD7] Java vector incubator API enabled; uses preferredBitSize=256; FMA enabled
+[2025-03-25T13:59:52,979][INFO ][o.e.j.JarHell            ] [DESKTOP-3GTEBD7] Bootstrapping java SecurityManager
+[2025-03-25T13:59:54,616][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] version[8.17.2], pid[27564], build[zip/747663ddda3421467150de0e4301e8d4bc636b0c/2025-02-05T22:10:57.067596412Z], OS[Windows 11/10.0/amd64], JVM[Oracle Corporation/OpenJDK 64-Bit Server VM/23/23+37-2369]
+[2025-03-25T13:59:54,618][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM home [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\jdk], using bundled JDK [true]
+[2025-03-25T13:59:54,618][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] JVM arguments [-Des.networkaddress.cache.ttl=60, -Des.networkaddress.cache.negative.ttl=10, -XX:+AlwaysPreTouch, -Xss1m, -Djava.awt.headless=true, -Dfile.encoding=UTF-8, -Djna.nosys=true, -XX:-OmitStackTraceInFastThrow, -Dio.netty.noUnsafe=true, -Dio.netty.noKeySetOptimization=true, -Dio.netty.recycler.maxCapacityPerThread=0, -Dlog4j.shutdownHookEnabled=false, -Dlog4j2.disable.jmx=true, -Dlog4j2.formatMsgNoLookups=true, -Djava.locale.providers=CLDR, -Des.distribution.type=zip, --enable-native-access=org.elasticsearch.nativeaccess,org.apache.lucene.core, -XX:ReplayDataFile=logs/replay_pid%p.log, -Djava.security.manager=allow, -XX:+UseG1GC, -Djava.io.tmpdir=C:\Users\Ludvi\AppData\Local\Temp\elasticsearch, --add-modules=jdk.incubator.vector, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.setAsTypeCache, -XX:CompileCommand=dontinline,java/lang/invoke/MethodHandle.asTypeUncached, -XX:+HeapDumpOnOutOfMemoryError, -XX:+ExitOnOutOfMemoryError, -XX:HeapDumpPath=data, -XX:ErrorFile=logs/hs_err_pid%p.log, -Xlog:gc*,gc+age=trace,safepoint:file=logs/gc.log:utctime,level,pid,tags:filecount=32,filesize=64m, -Xms8148m, -Xmx8148m, -XX:MaxDirectMemorySize=4271898624, -XX:G1HeapRegionSize=4m, -XX:InitiatingHeapOccupancyPercent=30, -XX:G1ReservePercent=15, --module-path=C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\lib, --add-modules=jdk.net, --add-modules=ALL-MODULE-PATH, -Djdk.module.main=org.elasticsearch.server]
+[2025-03-25T13:59:54,619][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] Default Locale [no_NO]
+[2025-03-25T14:00:20,126][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-url]
+[2025-03-25T14:00:20,127][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rest-root]
+[2025-03-25T14:00:20,127][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-core]
+[2025-03-25T14:00:20,128][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-redact]
+[2025-03-25T14:00:20,128][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-user-agent]
+[2025-03-25T14:00:20,128][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async-search]
+[2025-03-25T14:00:20,129][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-monitoring]
+[2025-03-25T14:00:20,129][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-s3]
+[2025-03-25T14:00:20,129][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-analytics]
+[2025-03-25T14:00:20,129][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql-core]
+[2025-03-25T14:00:20,131][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ent-search]
+[2025-03-25T14:00:20,131][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-autoscaling]
+[2025-03-25T14:00:20,131][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-painless]
+[2025-03-25T14:00:20,132][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ml]
+[2025-03-25T14:00:20,132][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-mustache]
+[2025-03-25T14:00:20,132][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [legacy-geo]
+[2025-03-25T14:00:20,132][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [logsdb]
+[2025-03-25T14:00:20,133][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ql]
+[2025-03-25T14:00:20,133][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-rrf]
+[2025-03-25T14:00:20,134][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [analysis-common]
+[2025-03-25T14:00:20,134][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [health-shards-availability]
+[2025-03-25T14:00:20,134][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transport-netty4]
+[2025-03-25T14:00:20,135][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [aggregations]
+[2025-03-25T14:00:20,136][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-common]
+[2025-03-25T14:00:20,136][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [frozen-indices]
+[2025-03-25T14:00:20,136][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-identity-provider]
+[2025-03-25T14:00:20,137][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-shutdown]
+[2025-03-25T14:00:20,137][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-text-structure]
+[2025-03-25T14:00:20,138][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-repo-test-kit]
+[2025-03-25T14:00:20,138][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ml-package-loader]
+[2025-03-25T14:00:20,139][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [kibana]
+[2025-03-25T14:00:20,139][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [constant-keyword]
+[2025-03-25T14:00:20,139][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-logstash]
+[2025-03-25T14:00:20,140][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ccr]
+[2025-03-25T14:00:20,140][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-graph]
+[2025-03-25T14:00:20,140][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-esql]
+[2025-03-25T14:00:20,140][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [parent-join]
+[2025-03-25T14:00:20,142][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [counted-keyword]
+[2025-03-25T14:00:20,143][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-enrich]
+[2025-03-25T14:00:20,143][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repositories-metering-api]
+[2025-03-25T14:00:20,144][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [transform]
+[2025-03-25T14:00:20,144][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-azure]
+[2025-03-25T14:00:20,144][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [dot-prefix-validation]
+[2025-03-25T14:00:20,145][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [repository-gcs]
+[2025-03-25T14:00:20,145][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [spatial]
+[2025-03-25T14:00:20,146][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-otel-data]
+[2025-03-25T14:00:20,146][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [apm]
+[2025-03-25T14:00:20,146][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-extras]
+[2025-03-25T14:00:20,146][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [mapper-version]
+[2025-03-25T14:00:20,147][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-rollup]
+[2025-03-25T14:00:20,147][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [percolator]
+[2025-03-25T14:00:20,147][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [data-streams]
+[2025-03-25T14:00:20,148][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-stack]
+[2025-03-25T14:00:20,149][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [rank-eval]
+[2025-03-25T14:00:20,149][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [reindex]
+[2025-03-25T14:00:20,149][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-security]
+[2025-03-25T14:00:20,149][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [blob-cache]
+[2025-03-25T14:00:20,150][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [searchable-snapshots]
+[2025-03-25T14:00:20,150][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-slm]
+[2025-03-25T14:00:20,150][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-geoip-enterprise-downloader]
+[2025-03-25T14:00:20,150][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [snapshot-based-recoveries]
+[2025-03-25T14:00:20,152][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-watcher]
+[2025-03-25T14:00:20,153][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [old-lucene-versions]
+[2025-03-25T14:00:20,153][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-ilm]
+[2025-03-25T14:00:20,153][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-inference]
+[2025-03-25T14:00:20,154][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-voting-only-node]
+[2025-03-25T14:00:20,154][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-deprecation]
+[2025-03-25T14:00:20,154][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-fleet]
+[2025-03-25T14:00:20,154][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-aggregate-metric]
+[2025-03-25T14:00:20,155][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-downsample]
+[2025-03-25T14:00:20,155][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-profiling]
+[2025-03-25T14:00:20,155][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-geoip]
+[2025-03-25T14:00:20,156][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-write-load-forecaster]
+[2025-03-25T14:00:20,157][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [search-business-rules]
+[2025-03-25T14:00:20,158][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [ingest-attachment]
+[2025-03-25T14:00:20,158][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [wildcard]
+[2025-03-25T14:00:20,159][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-apm-data]
+[2025-03-25T14:00:20,159][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [unsigned-long]
+[2025-03-25T14:00:20,160][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-sql]
+[2025-03-25T14:00:20,160][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [runtime-fields-common]
+[2025-03-25T14:00:20,161][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-async]
+[2025-03-25T14:00:20,161][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [vector-tile]
+[2025-03-25T14:00:20,161][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-kql]
+[2025-03-25T14:00:20,162][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [lang-expression]
+[2025-03-25T14:00:20,162][INFO ][o.e.p.PluginsService     ] [DESKTOP-3GTEBD7] loaded module [x-pack-eql]
+[2025-03-25T14:00:21,626][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] using [1] data paths, mounts [[(C:)]], net usable_space [252.4gb], net total_space [930.2gb], types [NTFS]
+[2025-03-25T14:00:21,627][INFO ][o.e.e.NodeEnvironment    ] [DESKTOP-3GTEBD7] heap size [7.9gb], compressed ordinary object pointers [true]
+[2025-03-25T14:00:21,792][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] node name [DESKTOP-3GTEBD7], node ID [eghVlMeGToeucHZ54u8vzg], cluster name [elasticsearch], roles [transform, data_content, data_warm, master, remote_cluster_client, data, data_cold, ingest, data_frozen, ml, data_hot]
+[2025-03-25T14:00:24,536][INFO ][o.e.i.r.RecoverySettings ] [DESKTOP-3GTEBD7] using rate limit [40mb] with [default=40mb, read=0b, write=0b, max=0b]
+[2025-03-25T14:00:24,692][INFO ][o.e.f.FeatureService     ] [DESKTOP-3GTEBD7] Registered local node features [cluster.stats.source_modes, data_stream.auto_sharding, data_stream.lifecycle.global_retention, data_stream.rollover.lazy, desired_node.version_deprecated, esql.agg_values, esql.async_query, esql.base64_decode_encode, esql.casting_operator, esql.counter_types, esql.disable_nullable_opts, esql.from_options, esql.metadata_fields, esql.metrics_counter_fields, esql.mv_ordering_sorted_ascending, esql.mv_sort, esql.resolve_fields_api, esql.spatial_points_from_source, esql.spatial_shapes, esql.st_centroid_agg, esql.st_contains_within, esql.st_disjoint, esql.st_intersects, esql.st_x_y, esql.string_literal_auto_casting, esql.string_literal_auto_casting_extended, esql.timespan_abbreviations, features_supported, file_settings, flattened.ignore_above_support, geoip.downloader.database.configuration, get_database_configuration_action.multi_node, health.dsl.info, health.extended_repository_indicator, knn_retriever_supported, license-trial-independent-version, logsdb_telemetry, logsdb_telemetry_stats, mapper.boolean_dimension, mapper.flattened.ignore_above_with_arrays_support, mapper.ignore_above_index_level_setting, mapper.index_sorting_on_nested, mapper.keyword_dimension_ignore_above, mapper.keyword_normalizer_synthetic_source, mapper.pass_through_priority, mapper.query_index_mode, mapper.range.null_values_off_by_one_fix, mapper.segment_level_fields_stats, mapper.source.synthetic_source_copy_to_fix, mapper.source.synthetic_source_copy_to_inside_objects_fix, mapper.source.synthetic_source_fallback, mapper.source.synthetic_source_stored_fields_advance_fix, mapper.source.synthetic_source_with_copy_to_and_doc_values_false, mapper.subobjects_auto, mapper.subobjects_auto_fixes, mapper.synthetic_source_keep, mapper.track_ignored_source, mapper.vectors.bbq, mapper.vectors.bit_vectors, mapper.vectors.int4_quantization, put_database_configuration_action.ipinfo, query_rule_list_types, query_rule_retriever_supported, query_rules.test, random_reranker_retriever_supported, repositories.supports_usage_stats, rest.capabilities_action, rest.local_only_capabilities, retrievers_supported, routing.boolean_routing_path, routing.multi_value_routing_path, rrf_retriever_composition_supported, rrf_retriever_supported, script.hamming, script.term_stats, search.vectors.k_param_supported, security.migration_framework, security.role_mapping_cleanup, security.roles_metadata_flattened, semantic_text.default_elser_2, semantic_text.search_inference_id, simulate.component.template.substitutions, simulate.index.template.substitutions, simulate.mapping.addition, simulate.mapping.validation, simulate.mapping.validation.templates, simulate.support.non.template.mapping, slm.interval_schedule, snapshot.repository_verify_integrity, standard_retriever_supported, stats.include_disk_thresholds, text_similarity_reranker_retriever_composition_supported, text_similarity_reranker_retriever_supported, tsdb.ts_routing_hash_doc_value_parse_byte_ref, unified_highlighter_matched_fields, usage.data_tiers.precalculate_stats]
+[2025-03-25T14:00:24,725][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated default factory retention to [null]
+[2025-03-25T14:00:24,726][INFO ][o.e.c.m.DataStreamGlobalRetentionSettings] [DESKTOP-3GTEBD7] Updated max factory retention to [null]
+[2025-03-25T14:00:25,147][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28532] [Main.cc@123] controller (64 bit): Version 8.17.2 (Build 002b4653bd15a4) Copyright (c) 2025 Elasticsearch BV
+[2025-03-25T14:00:25,484][INFO ][o.e.x.o.OTelPlugin       ] [DESKTOP-3GTEBD7] OTel ingest plugin is enabled
+[2025-03-25T14:00:25,509][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] OpenTelemetry index template registry is enabled
+[2025-03-25T14:00:25,513][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm metrics is disabled
+[2025-03-25T14:00:25,513][INFO ][o.e.t.a.APM              ] [DESKTOP-3GTEBD7] Sending apm tracing is disabled
+[2025-03-25T14:00:25,545][INFO ][o.e.x.s.Security         ] [DESKTOP-3GTEBD7] Security is enabled
+[2025-03-25T14:00:25,834][INFO ][o.e.x.s.a.s.FileRolesStore] [DESKTOP-3GTEBD7] parsed [0] roles from file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\roles.yml]
+[2025-03-25T14:00:26,191][INFO ][o.e.x.w.Watcher          ] [DESKTOP-3GTEBD7] Watcher initialized components at 2025-03-25T13:00:26.190Z
+[2025-03-25T14:00:26,266][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] Profiling is enabled
+[2025-03-25T14:00:26,283][INFO ][o.e.x.p.ProfilingPlugin  ] [DESKTOP-3GTEBD7] profiling index templates will not be installed or reinstalled
+[2025-03-25T14:00:26,287][INFO ][o.e.x.a.APMPlugin        ] [DESKTOP-3GTEBD7] APM ingest plugin is enabled
+[2025-03-25T14:00:26,321][INFO ][o.e.x.c.t.YamlTemplateRegistry] [DESKTOP-3GTEBD7] apm index template registry is enabled
+[2025-03-25T14:00:26,742][INFO ][o.e.t.n.NettyAllocator   ] [DESKTOP-3GTEBD7] creating NettyAllocator with the following configs: [name=elasticsearch_configured, chunk_size=1mb, suggested_max_allocation_size=1mb, factors={es.unsafe.use_netty_default_chunk_and_page_size=false, g1gc_enabled=true, g1gc_region_size=4mb}]
+[2025-03-25T14:00:26,788][INFO ][o.e.d.DiscoveryModule    ] [DESKTOP-3GTEBD7] using discovery type [multi-node] and seed hosts providers [settings]
+[2025-03-25T14:00:27,823][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] initialized
+[2025-03-25T14:00:27,824][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] starting ...
+[2025-03-25T14:00:27,851][INFO ][o.e.x.s.c.f.PersistentCache] [DESKTOP-3GTEBD7] persistent cache index loaded
+[2025-03-25T14:00:27,852][INFO ][o.e.x.d.l.DeprecationIndexingComponent] [DESKTOP-3GTEBD7] deprecation component started
+[2025-03-25T14:00:27,938][INFO ][o.e.t.TransportService   ] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9300}, bound_addresses {[::1]:9300}, {127.0.0.1:9300}
+[2025-03-25T14:00:28,579][WARN ][o.e.b.BootstrapChecks    ] [DESKTOP-3GTEBD7] Transport SSL must be enabled if security is enabled. Please set [xpack.security.transport.ssl.enabled] to [true] or disable security by setting [xpack.security.enabled] to [false]; for more information see [https://www.elastic.co/guide/en/elasticsearch/reference/8.17/bootstrap-checks-xpack.html#bootstrap-checks-tls]
+[2025-03-25T14:00:28,582][WARN ][o.e.c.c.ClusterBootstrapService] [DESKTOP-3GTEBD7] this node is locked into cluster UUID [q4xX1Hd5REudhXCkiA9LXw] but [cluster.initial_master_nodes] is set to [DESKTOP-3GTEBD7]; remove this setting to avoid possible data loss caused by subsequent cluster bootstrap attempts; for further information see https://www.elastic.co/guide/en/elasticsearch/reference/8.17/important-settings.html#initial_master_nodes
+[2025-03-25T14:00:28,683][INFO ][o.e.c.s.MasterService    ] [DESKTOP-3GTEBD7] elected-as-master ([1] nodes joined in term 21)[_FINISH_ELECTION_, {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{AAcmEGdzRaqvrSoJgK9pjA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000} completing election], term: 21, version: 476, delta: master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{AAcmEGdzRaqvrSoJgK9pjA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}
+[2025-03-25T14:00:28,738][INFO ][o.e.c.s.ClusterApplierService] [DESKTOP-3GTEBD7] master node changed {previous [], current [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{AAcmEGdzRaqvrSoJgK9pjA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}]}, term: 21, version: 476, reason: Publication{term=21, version=476}
+[2025-03-25T14:00:28,773][INFO ][o.e.c.c.NodeJoinExecutor ] [DESKTOP-3GTEBD7] node-join: [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{AAcmEGdzRaqvrSoJgK9pjA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}] with reason [completing election]
+[2025-03-25T14:00:28,775][INFO ][o.e.h.AbstractHttpServerTransport] [DESKTOP-3GTEBD7] publish_address {127.0.0.1:9200}, bound_addresses {127.0.0.1:9200}
+[2025-03-25T14:00:28,793][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] started {DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}{AAcmEGdzRaqvrSoJgK9pjA}{DESKTOP-3GTEBD7}{127.0.0.1}{127.0.0.1:9300}{cdfhilmrstw}{8.17.2}{7000099-8521000}{ml.config_version=12.0.0, xpack.installed=true, transform.config_version=10.0.0, ml.machine_memory=17088503808, ml.allocated_processors=24, ml.allocated_processors_double=24.0, ml.max_jvm_size=8543797248}
+[2025-03-25T14:00:29,109][INFO ][o.e.x.s.a.Realms         ] [DESKTOP-3GTEBD7] license mode is [basic], currently licensed security realms are [reserved/reserved,file/default_file,native/default_native]
+[2025-03-25T14:00:29,115][INFO ][o.e.l.ClusterStateLicenseService] [DESKTOP-3GTEBD7] license [79293fc9-c321-44d4-91ac-f3ff191d72b8] mode [basic] - valid
+[2025-03-25T14:00:29,119][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] starting file watcher ...
+[2025-03-25T14:00:29,126][INFO ][o.e.g.GatewayService     ] [DESKTOP-3GTEBD7] recovered [38] indices into cluster_state
+[2025-03-25T14:00:29,126][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] file settings service up and running [tid=108]
+[2025-03-25T14:00:29,127][INFO ][o.e.r.s.FileSettingsService] [DESKTOP-3GTEBD7] setting file [C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend\elasticsearch-8.17.2\config\operator\settings.json] not found, initializing [file_settings] as empty
+[2025-03-25T14:00:29,189][ERROR][o.e.x.s.a.e.ReservedRealm] [DESKTOP-3GTEBD7] failed to retrieve password hash for reserved user [elastic]
+org.elasticsearch.action.UnavailableShardsException: at least one primary shard for the index [.security-7] is unavailable
+[2025-03-25T14:00:29,197][INFO ][o.e.x.s.a.RealmsAuthenticator] [DESKTOP-3GTEBD7] Authentication of [elastic] was terminated by realm [reserved] - failed to authenticate user [elastic]
+[2025-03-25T14:00:29,440][INFO ][o.e.h.n.s.HealthNodeTaskExecutor] [DESKTOP-3GTEBD7] Node [{DESKTOP-3GTEBD7}{eghVlMeGToeucHZ54u8vzg}] is selected as the current health node.
+[2025-03-25T14:00:30,439][INFO ][o.e.c.r.a.AllocationService] [DESKTOP-3GTEBD7] current.health="YELLOW" message="Cluster health status changed from [RED] to [YELLOW] (reason: [shards started [[.ds-ilm-history-7-2025.03.12-000002][0]]])." previous.health="RED" reason="shards started [[.ds-ilm-history-7-2025.03.12-000002][0]]"
+[2025-03-25T14:10:29,096][INFO ][o.e.x.c.i.WaitForRolloverReadyStep] [DESKTOP-3GTEBD7] index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] is ready for rollover, conditions: [{[max_primary_shard_docs: 200000000]=false, [min_docs: 1]=true, [max_primary_shard_size: 50gb]=false, [max_age: 7d]=true}]
+[2025-03-25T14:10:29,097][INFO ][o.e.x.c.i.WaitForRolloverReadyStep] [DESKTOP-3GTEBD7] index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] is ready for rollover, conditions: [{[max_primary_shard_docs: 200000000]=false, [min_docs: 1]=true, [max_primary_shard_size: 50gb]=false, [max_age: 7d]=true}]
+[2025-03-25T14:10:29,098][INFO ][o.e.x.c.i.WaitForRolloverReadyStep] [DESKTOP-3GTEBD7] index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] is ready for rollover, conditions: [{[max_primary_shard_docs: 200000000]=false, [min_docs: 1]=true, [max_primary_shard_size: 50gb]=false, [max_age: 7d]=true}]
+[2025-03-25T14:10:29,097][INFO ][o.e.x.c.i.WaitForRolloverReadyStep] [DESKTOP-3GTEBD7] index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] is ready for rollover, conditions: [{[max_primary_shard_docs: 200000000]=false, [min_docs: 1]=true, [max_primary_shard_size: 50gb]=false, [max_age: 7d]=true}]
+[2025-03-25T14:10:29,099][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] to [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,100][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] to [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,131][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] to [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,132][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] to [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,168][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002] creating index, cause [rollover_data_stream], templates [metrics-apm.service_transaction.1m@template], shards [1]/[1]
+[2025-03-25T14:10:29,173][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002] creating index, cause [rollover_data_stream], templates [metrics-apm.transaction.1m@template], shards [1]/[1]
+[2025-03-25T14:10:29,259][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002] creating index, cause [rollover_data_stream], templates [metrics-apm.service_summary.1m@template], shards [1]/[1]
+[2025-03-25T14:10:29,262][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002] creating index, cause [rollover_data_stream], templates [metrics-apm.service_destination.1m@template], shards [1]/[1]
+[2025-03-25T14:10:29,403][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,404][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,405][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] to [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,406][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] to [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,406][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,406][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,407][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] to [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,407][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"attempt-rollover"}] to [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,439][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] to [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,440][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] to [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,441][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,441][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,442][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] to [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,443][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] to [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,443][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] to [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,445][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] to [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,445][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,446][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"wait-for-active-shards"}] to [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,446][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"update-rollover-lifecycle-date"}] to [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,447][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,536][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] to [{"phase":"hot","action":"complete","name":"complete"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,537][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,538][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,539][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] to [{"phase":"hot","action":"complete","name":"complete"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,539][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] to [{"phase":"hot","action":"complete","name":"complete"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,540][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,540][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.17-000001] from [{"phase":"hot","action":"rollover","name":"set-indexing-complete"}] to [{"phase":"hot","action":"complete","name":"complete"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,541][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:29,571][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,572][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.transaction_1m_metrics-default_policy]
+[2025-03-25T14:10:29,573][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_summary_1m_metrics-default_policy]
+[2025-03-25T14:10:29,573][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_destination_1m_metrics-default_policy]
+[2025-03-25T14:10:34,139][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-ilm-history-7-2025.03.20-000003/4cC4hOvZRCqUefTG3WfGLQ] update_mapping [_doc]
+[2025-03-25T14:33:01,017][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.1m-default-2025.03.25-000002/XsqB2nEJSYaAE4RCL0kiyQ] update_mapping [_doc]
+[2025-03-25T14:33:01,020][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.1m-default-2025.03.25-000002/xaixm6ZKSISbrNlIFbGENA] update_mapping [_doc]
+[2025-03-25T14:33:01,024][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.1m-default-2025.03.25-000002/iJMB5XwySjyVXhV8AHfpxQ] update_mapping [_doc]
+[2025-03-25T14:33:01,026][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.1m-default-2025.03.25-000002/M9C8E3oZSkq5v402CgiDOQ] update_mapping [_doc]
+[2025-03-25T14:40:01,012][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_transaction.10m@template], shards [1]/[1]
+[2025-03-25T14:40:01,013][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_transaction.10m-default] with write index [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:40:01,017][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.transaction.10m@template], shards [1]/[1]
+[2025-03-25T14:40:01,018][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.transaction.10m-default] with write index [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:40:01,020][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_summary.10m@template], shards [1]/[1]
+[2025-03-25T14:40:01,021][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_summary.10m-default] with write index [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:40:01,024][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_destination.10m@template], shards [1]/[1]
+[2025-03-25T14:40:01,024][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_destination.10m-default] with write index [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:40:01,190][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,192][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_summary_10m_metrics-default_policy]
+[2025-03-25T14:40:01,193][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,193][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_destination_10m_metrics-default_policy]
+[2025-03-25T14:40:01,225][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001/W5rtJgmHTga0rGNRmlcxYQ] update_mapping [_doc]
+[2025-03-25T14:40:01,227][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001/AFd7aoQYRCOmBvmZ6S6SXg] update_mapping [_doc]
+[2025-03-25T14:40:01,230][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001/ol80tUx9RRe-1GskdICrNA] update_mapping [_doc]
+[2025-03-25T14:40:01,232][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001/r3c1BMIHQk-8hTD6cWlxUw] update_mapping [_doc]
+[2025-03-25T14:40:01,264][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,264][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_summary_10m_metrics-default_policy]
+[2025-03-25T14:40:01,265][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,265][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_destination_10m_metrics-default_policy]
+[2025-03-25T14:40:01,335][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,336][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_summary_10m_metrics-default_policy]
+[2025-03-25T14:40:01,336][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,337][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_destination_10m_metrics-default_policy]
+[2025-03-25T14:40:01,366][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,368][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_summary_10m_metrics-default_policy]
+[2025-03-25T14:40:01,369][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.transaction_10m_metrics-default_policy]
+[2025-03-25T14:40:01,369][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.10m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_destination_10m_metrics-default_policy]
+[2025-03-25T14:44:41,212][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_summary.60m@template], shards [1]/[1]
+[2025-03-25T14:44:41,213][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_summary.60m-default] with write index [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:44:41,216][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_transaction.60m@template], shards [1]/[1]
+[2025-03-25T14:44:41,216][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_transaction.60m-default] with write index [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:44:41,218][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.service_destination.60m@template], shards [1]/[1]
+[2025-03-25T14:44:41,219][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.service_destination.60m-default] with write index [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:44:41,222][INFO ][o.e.c.m.MetadataCreateIndexService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001] creating index, cause [initialize_data_stream], templates [metrics-apm.transaction.60m@template], shards [1]/[1]
+[2025-03-25T14:44:41,222][INFO ][o.e.c.m.MetadataCreateDataStreamService] [DESKTOP-3GTEBD7] adding data stream [metrics-apm.transaction.60m-default] with write index [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001], backing indices [], and aliases []
+[2025-03-25T14:44:41,382][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,382][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_destination_60m_metrics-default_policy]
+[2025-03-25T14:44:41,384][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,384][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001] from [null] to [{"phase":"new","action":"complete","name":"complete"}] in policy [metrics-apm.service_summary_60m_metrics-default_policy]
+[2025-03-25T14:44:41,415][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001/8VTZYZZARxGKyYFuuwpVbw] update_mapping [_doc]
+[2025-03-25T14:44:41,418][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001/YnqkgEsmRleXl5Z_23yYdg] update_mapping [_doc]
+[2025-03-25T14:44:41,422][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001/oGKFJCiFSPCSuH2usb0C0w] update_mapping [_doc]
+[2025-03-25T14:44:41,424][INFO ][o.e.c.m.MetadataMappingService] [DESKTOP-3GTEBD7] [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001/_eSopM2cTbCFEw1HTo-91A] update_mapping [_doc]
+[2025-03-25T14:44:41,458][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,459][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_destination_60m_metrics-default_policy]
+[2025-03-25T14:44:41,459][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,460][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001] from [{"phase":"new","action":"complete","name":"complete"}] to [{"phase":"hot","action":"set_priority","name":"set_priority"}] in policy [metrics-apm.service_summary_60m_metrics-default_policy]
+[2025-03-25T14:44:41,531][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,531][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_destination_60m_metrics-default_policy]
+[2025-03-25T14:44:41,532][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,533][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"set_priority","name":"set_priority"}] to [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] in policy [metrics-apm.service_summary_60m_metrics-default_policy]
+[2025-03-25T14:44:41,562][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.transaction.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,562][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_destination.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_destination_60m_metrics-default_policy]
+[2025-03-25T14:44:41,563][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_transaction.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_transaction_60m_metrics-default_policy]
+[2025-03-25T14:44:41,563][INFO ][o.e.x.i.IndexLifecycleTransition] [DESKTOP-3GTEBD7] moving index [.ds-metrics-apm.service_summary.60m-default-2025.03.25-000001] from [{"phase":"hot","action":"unfollow","name":"branch-check-unfollow-prerequisites"}] to [{"phase":"hot","action":"rollover","name":"check-rollover-ready"}] in policy [metrics-apm.service_summary_60m_metrics-default_policy]
+[2025-03-25T14:44:47,536][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopping ...
+[2025-03-25T14:44:47,537][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] shutting down watcher thread
+[2025-03-25T14:44:47,538][INFO ][o.e.c.f.AbstractFileWatchingService] [DESKTOP-3GTEBD7] watcher service stopped
+[2025-03-25T14:44:47,540][INFO ][o.e.x.w.WatcherService   ] [DESKTOP-3GTEBD7] stopping watch service, reason [shutdown initiated]
+[2025-03-25T14:44:47,541][INFO ][o.e.x.w.t.s.e.TickerScheduleTriggerEngine] [DESKTOP-3GTEBD7] Stopping watcher engine
+[2025-03-25T14:44:47,541][INFO ][o.e.x.w.WatcherLifeCycleService] [DESKTOP-3GTEBD7] watcher has stopped and shutdown
+[2025-03-25T14:44:47,541][INFO ][o.e.x.m.p.l.CppLogMessageHandler] [DESKTOP-3GTEBD7] [controller/28532] [Main.cc@176] ML controller exiting
+[2025-03-25T14:44:47,542][INFO ][o.e.x.m.p.NativeController] [DESKTOP-3GTEBD7] Native controller process has stopped - no new native processes can be started
+[2025-03-25T14:44:47,736][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] stopped
+[2025-03-25T14:44:47,738][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closing ...
+[2025-03-25T14:44:47,755][INFO ][o.e.n.Node               ] [DESKTOP-3GTEBD7] closed

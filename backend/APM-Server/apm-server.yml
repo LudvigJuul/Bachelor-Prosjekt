@@ -6,6 +6,8 @@ apm-server:
   # Defines the host and port the server is listening on. Use "unix:/path/to.sock" to listen on a unix domain socket.
   host: "127.0.0.1:8200"
   enabled: true
+
+ 
   # Agent authorization configuration. If no methods are defined, all requests will be allowed.
   #auth:
     # Agent authorization using Elasticsearch API Keys.
@@ -203,7 +205,7 @@ apm-server:
     # Elasticsearch authentication configurations are exposed to allow fine-tuned permission control
     # and is required when working with Elastic Agent standalone or Fleet.
     # This will override credentials in output.elasticsearch configuration.
-    #elasticsearch:
+    elasticsearch:
       # Array of hosts to connect to.
       # Scheme and port can be left out and will be set to the default (`http` and `9200`).
       # In case you specify and additional path, the scheme is required: `http://localhost:9200/path`.

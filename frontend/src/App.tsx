@@ -47,6 +47,7 @@ import "tailwindcss";
 import { init as initApm } from '@elastic/apm-rum';
 
 
+
 // Initialize the APM agent
 
 const apm = initApm({
@@ -56,6 +57,8 @@ const apm = initApm({
   // If using a secret token for authentication, add it like this:
   //secretToken: ''
 });
+
+
 
 const queryClient = new QueryClient();
 

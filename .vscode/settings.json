@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./backend/Python311/Lib/site-packages",
+        "./backend/Python311/Lib/site-packages/elasticapm/instrumentation/packages"
+    ]
+}

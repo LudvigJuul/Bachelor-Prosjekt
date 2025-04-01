@@ -2,14 +2,28 @@ import os
 import datetime
 from functools import wraps
 
+
 from flask import send_from_directory
+
+from flask import Flask
+from elasticapm.contrib.flask import ElasticAPM
+
 from flask import Flask, jsonify, request
+
+
+from elasticapm import capture_span
+
+from elasticapm import Client
+
 from flask_cors import CORS
+
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate  # <-- Added Flask-Migrate import
 from sqlalchemy.exc import IntegrityError
+
 from werkzeug.security import generate_password_hash, check_password_hash
 from werkzeug.utils import secure_filename
+
 import jwt
 
 # OPTIONAL: If you're using a .env file to store environment variables,
@@ -17,6 +31,7 @@ import jwt
 # pip install python-dotenv
 # from dotenv import load_dotenv
 # load_dotenv()
+
 
 app = Flask(__name__)
 
@@ -26,6 +41,22 @@ CORS(app,
      resources={r"/api/*": {"origins": ["http://localhost:5173", "http://127.0.0.1:5173"]}},
      methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
      supports_credentials=True)
+
+
+#Konfigurerer Elastic_Apm:
+
+
+app.config['ELASTIC_APM'] = {
+    'SERVICE_NAME': 'flask-backend',
+    'SECRET_TOKEN': 'changeme',  # Må matche det som står i apm-server.yml
+    'SERVER_URL': 'http://127.0.0.1:8200',
+    'ENVIRONMENT': 'development',
+}
+
+
+
+
+apm = ElasticAPM(app)
 
 
 # Use an environment variable for the secret key, with a fallback if not set
@@ -119,6 +150,25 @@ class Device(db.Model):
 
 #     return decorated
 
+
+#@capture_span(span_type="auth", span_subtype="login")
+def log_login_attempt(ip_address, email, success):
+    print("capture_span TRIGGERED")
+
+    with capture_span(
+        name="login_attempt",
+        span_type="auth",
+        span_subtype="login"
+    ):
+        apm.client.capture_message(
+            f"Login attempt from {ip_address} for {email} | Success: {success}",
+            extra={"ip": ip_address, "email": email, "success": success},
+            level="info"
+        )
+
+
+
+
 def token_required(f):
     @wraps(f)
     def decorated(*args, **kwargs):
@@ -152,6 +202,11 @@ def token_required(f):
 # -----------------------------------------------------------------------------
 # ROUTES
 # -----------------------------------------------------------------------------
+
+@app.route("/api/test-error")
+def test_error():
+    raise Exception("Dette er en test for APM")
+
 
 @app.route("/api/debug/users", methods=["GET"])
 def debug_users():
@@ -230,7 +285,19 @@ def login():
         return jsonify({"message": "Missing fields"}), 400
 
     user = User.query.filter_by(email=data["email"]).first()
-    if user and check_password_hash(user.password_hash, data["password"]):
+    
+    ######################################################################################################
+    password_matches = user and check_password_hash(user.password_hash, data["password"])
+    ip_address = request.remote_addr
+    email = data.get("email")
+
+    # Logg forsøket (suksess eller ikke)
+    log_login_attempt(ip_address, email, success=bool(password_matches))
+
+    ######################################################################################################
+    
+    #if user and check_password_hash(user.password_hash, data["password"]):
+    if user and password_matches:
         token = jwt.encode(
             {
                 "user_id": user.id,

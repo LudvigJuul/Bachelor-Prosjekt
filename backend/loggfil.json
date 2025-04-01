@@ -1,0 +1,3963 @@
+C:\Users\Ludvi\Documents\Bachelor Bravo\Project Source\backend>python indexing.py
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 30560
+    },
+    "pid": 16336
+  },
+  "@timestamp": "2025-04-01T11:34:38.590Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "extra": {
+                "success": true,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x00000247616DE8D0>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            extra={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": true,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": true,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (POST, OPTIONS) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000024763A5A200>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+              "wsgi.input": "<_io.BufferedReader name=1112>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000024763A5A200>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+              "wsgi.input": "<_io.BufferedReader name=1112>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000024763A5A200>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x00000247639E0D50>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1112>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x00000247639E0D50>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x0000024763A3C180>",
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000024763A5A200>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000024763518E00>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+              "wsgi.input": "<_io.BufferedReader name=1112>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000024763A5A200>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000024763518E00>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x0000024763A5A020>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+              "wsgi.input": "<_io.BufferedReader name=1112>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000024763A53390>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000024763A67B50>",
+            "client_address": [
+              "127.0.0.1",
+              57686
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000024763A53390>",
+            "client_address": [
+              "127.0.0.1",
+              57686
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1112, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57686)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000024763A53390>",
+            "client_address": [
+              "127.0.0.1",
+              57686
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 6160)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 6160)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 6160)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+    },
+    "id": "e1374e55458def78ebb47c78bb60a6fe",
+    "grouping_key": "5ceaab8033f62154a581fec632631bdb"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+  "event": {
+    "ingested": "2025-04-01T11:34:40Z"
+  },
+  "timestamp": {
+    "us": 1743507278590903
+  }
+}
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 15192
+    },
+    "pid": 18368
+  },
+  "@timestamp": "2025-04-01T11:31:15.911Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "extra": {
+                "success": true,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x0000023330C7E8D0>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            extra={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": true,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": true,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (POST, OPTIONS) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+              "wsgi.input": "<_io.BufferedReader name=1140>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1140>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x0000023332F60ED0>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1140>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x0000023332F60ED0>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x0000023332FDC180>",
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000023332AB8E00>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1140>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x0000023332FFA200>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000023332AB8E00>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+              "wsgi.input": "<_io.BufferedReader name=1140>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000002333300E5D0>",
+            "client_address": [
+              "127.0.0.1",
+              57550
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "client_address": [
+              "127.0.0.1",
+              57550
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1140, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57550)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "client_address": [
+              "127.0.0.1",
+              57550
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-4 (process_request_thread), started daemon 3320)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-4 (process_request_thread), started daemon 3320)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-4 (process_request_thread), started daemon 3320)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+    },
+    "id": "5f2fe41c0de214975715a36408c3b912",
+    "grouping_key": "5ceaab8033f62154a581fec632631bdb"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+  "event": {
+    "ingested": "2025-04-01T11:31:17Z"
+  },
+  "timestamp": {
+    "us": 1743507075911288
+  }
+}
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 15192
+    },
+    "pid": 18368
+  },
+  "@timestamp": "2025-04-01T11:31:13.246Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "extra": {
+                "success": false,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x0000023330C7E8D0>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: False"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            extra={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": false,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": false,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (POST, OPTIONS) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1068>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+              "wsgi.input": "<_io.BufferedReader name=1068>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x0000023332F60ED0>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+              "wsgi.input": "<_io.BufferedReader name=1068>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x0000023332F60ED0>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x0000023332FDC180>",
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000023332AB8E00>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1068>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x0000023332FFA3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x0000023332FFA200>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x0000023332AB8E00>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1068>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x0000023333007050>",
+            "client_address": [
+              "127.0.0.1",
+              57544
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "client_address": [
+              "127.0.0.1",
+              57544
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1068, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57544)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x0000023330AA9A10>",
+            "client_address": [
+              "127.0.0.1",
+              57544
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32500)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32500)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32500)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: False",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: False"
+    },
+    "id": "11713b46ed604e3c9d426dd5f060623f",
+    "grouping_key": "90bb0070754e6314e53ab281760704f3"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: False",
+  "event": {
+    "ingested": "2025-04-01T11:31:17Z"
+  },
+  "timestamp": {
+    "us": 1743507073246287
+  }
+}
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 15192
+    },
+    "pid": 16692
+  },
+  "@timestamp": "2025-04-01T11:24:58.643Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "extra": {
+                "success": true,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x00000211D6B1E8D0>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            extra={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": true,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": true,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (POST, OPTIONS) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000211D8E9A3E0>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+              "wsgi.input": "<_io.BufferedReader name=1216>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000211D8E9A3E0>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+              "wsgi.input": "<_io.BufferedReader name=1216>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000211D8E9A3E0>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x00000211D8E01510>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+              "wsgi.input": "<_io.BufferedReader name=1216>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x00000211D8E01510>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x00000211D8E7C7C0>",
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000211D8E9A3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x00000211D8958E00>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1216>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000211D8E9A3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x00000211D8958E00>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x00000211D8E9A020>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1216>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000211D8E93550>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000211D8EA7ED0>",
+            "client_address": [
+              "127.0.0.1",
+              57302
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000211D8E93550>",
+            "client_address": [
+              "127.0.0.1",
+              57302
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1216, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57302)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000211D8E93550>",
+            "client_address": [
+              "127.0.0.1",
+              57302
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32332)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32332)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 32332)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+    },
+    "id": "684c880ab927626f6ac1abad42f41602",
+    "grouping_key": "5ceaab8033f62154a581fec632631bdb"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+  "event": {
+    "ingested": "2025-04-01T11:25:00Z"
+  },
+  "timestamp": {
+    "us": 1743506698643463
+  }
+}
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 32748
+    },
+    "pid": 32724
+  },
+  "@timestamp": "2025-04-01T11:22:42.108Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "custom": {
+                "success": true,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x000001BF2BD9C390>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            custom={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": true,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": true,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (POST, OPTIONS) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x000001BF2C36A3E0>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+              "wsgi.input": "<_io.BufferedReader name=1128>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x000001BF2C36A3E0>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1128>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x000001BF2C36A3E0>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x000001BF2C2D0F10>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+              "wsgi.input": "<_io.BufferedReader name=1128>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x000001BF2C2D0F10>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x000001BF2C34C7C0>",
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x000001BF2C36A3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x000001BF2BE28E00>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+              "wsgi.input": "<_io.BufferedReader name=1128>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x000001BF2C36A3E0>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x000001BF2C36A020>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x000001BF2BE28E00>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1128>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x000001BF2C207B90>",
+            "request": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x000001BF2C377C50>",
+            "client_address": [
+              "127.0.0.1",
+              57192
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x000001BF2C207B90>",
+            "client_address": [
+              "127.0.0.1",
+              57192
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1128, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57192)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x000001BF2C207B90>",
+            "client_address": [
+              "127.0.0.1",
+              57192
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 10824)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 10824)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 10824)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+    },
+    "custom": {
+      "success": true,
+      "ip": "127.0.0.1",
+      "email": "ludvigjuul@gmail.com"
+    },
+    "id": "e2c85640e3dccfe0846592399f57047e",
+    "grouping_key": "5ceaab8033f62154a581fec632631bdb"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+  "event": {
+    "ingested": "2025-04-01T11:22:45Z"
+  },
+  "timestamp": {
+    "us": 1743506562108051
+  }
+}
+{
+  "observer": {
+    "hostname": "DESKTOP-3GTEBD7",
+    "type": "apm-server",
+    "version": "8.17.3"
+  },
+  "agent": {
+    "activation_method": "unknown",
+    "name": "python",
+    "version": "6.23.0"
+  },
+  "process": {
+    "parent": {
+      "pid": 34140
+    },
+    "pid": 28748
+  },
+  "@timestamp": "2025-04-01T11:19:03.780Z",
+  "data_stream": {
+    "namespace": "default",
+    "type": "logs",
+    "dataset": "apm.error"
+  },
+  "service": {
+    "node": {
+      "name": "desktop-3gtebd7"
+    },
+    "environment": "development",
+    "framework": {
+      "name": "flask",
+      "version": "3.1.0"
+    },
+    "name": "flask-backend",
+    "runtime": {
+      "name": "CPython",
+      "version": "3.11.0"
+    },
+    "language": {
+      "name": "python",
+      "version": "3.11.0"
+    }
+  },
+  "host": {
+    "hostname": "desktop-3gtebd7",
+    "os": {
+      "platform": "windows"
+    },
+    "ip": [
+      "127.0.0.1"
+    ],
+    "name": "desktop-3gtebd7",
+    "architecture": "AMD64"
+  },
+  "error": {
+    "culprit": "threading._bootstrap",
+    "log": {
+      "stacktrace": [
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\elasticapm\\base.py",
+          "filename": "elasticapm\\base.py",
+          "line": {
+            "number": 271,
+            "context": "        return self.capture(\"Message\", message=message, param_message=param_message, **kwargs)"
+          },
+          "function": "capture_message",
+          "module": "elasticapm.base",
+          "context": {
+            "pre": [
+              "        >>> client.capture_message('My event just happened!')",
+              "        \"\"\""
+            ],
+            "post": [
+              "",
+              "    def capture_exception(self, exc_info=None, handled=True, **kwargs):"
+            ]
+          },
+          "vars": {
+            "kwargs": {
+              "level": "info",
+              "custom": {
+                "success": true,
+                "ip": "127.0.0.1",
+                "email": "ludvigjuul@gmail.com"
+              }
+            },
+            "self": "<elasticapm.base.Client object at 0x00000241A9CECFD0>",
+            "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 163,
+            "context": "        apm.client.capture_message("
+          },
+          "function": "log_login_attempt",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "        span_subtype=\"login\"",
+              "    ):"
+            ],
+            "post": [
+              "            f\"Login attempt from {ip_address} for {email} | Success: {success}\",",
+              "            custom={\"ip\": ip_address, \"email\": email, \"success\": success},"
+            ]
+          },
+          "vars": {
+            "success": true,
+            "ip_address": "127.0.0.1",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\server.py",
+          "filename": "backend\\server.py",
+          "line": {
+            "number": 295,
+            "context": "    log_login_attempt(ip_address, email, success=bool(password_matches))"
+          },
+          "function": "login",
+          "module": "__main__",
+          "context": {
+            "pre": [
+              "",
+              "    # Logg fors\u00f8ket (suksess eller ikke)"
+            ],
+            "post": [
+              "",
+              "    ######################################################################################################"
+            ]
+          },
+          "vars": {
+            "password_matches": true,
+            "data": {
+              "password": "[REDACTED]",
+              "email": "ludvigjuul@gmail.com"
+            },
+            "ip_address": "127.0.0.1",
+            "user": "<User 1>",
+            "email": "ludvigjuul@gmail.com"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 902,
+            "context": "        return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]"
+          },
+          "function": "dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        # otherwise dispatch to the handler for that endpoint",
+              "        view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]"
+            ],
+            "post": [
+              "",
+              "    def full_dispatch_request(self) -> Response:"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>",
+            "rule": "<Rule '/api/login' (OPTIONS, POST) -> login>",
+            "req": "<Request 'http://127.0.0.1:5000/api/login' [POST]>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 917,
+            "context": "                rv = self.dispatch_request()"
+          },
+          "function": "full_dispatch_request",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            rv = self.preprocess_request()",
+              "            if rv is None:"
+            ],
+            "post": [
+              "        except Exception as e:",
+              "            rv = self.handle_user_exception(e)"
+            ]
+          },
+          "vars": {
+            "self": "<Flask 'server'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1511,
+            "context": "                response = self.full_dispatch_request()"
+          },
+          "function": "wsgi_app",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "            try:",
+              "                ctx.push()"
+            ],
+            "post": [
+              "            except Exception as e:",
+              "                error = e"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000241AC1CA480>",
+            "ctx": "<RequestContext 'http://127.0.0.1:5000/api/login' [POST] of server>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1160>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\flask\\app.py",
+          "filename": "flask\\app.py",
+          "line": {
+            "number": 1536,
+            "context": "        return self.wsgi_app(environ, start_response)"
+          },
+          "function": "__call__",
+          "module": "flask.app",
+          "context": {
+            "pre": [
+              "        wrapped to apply middleware.",
+              "        \"\"\""
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000241AC1CA480>",
+            "self": "<Flask 'server'>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+              "wsgi.input": "<_io.BufferedReader name=1160>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\debug\\__init__.py",
+          "filename": "werkzeug\\debug\\__init__.py",
+          "line": {
+            "number": 343,
+            "context": "            app_iter = self.app(environ, start_response)"
+          },
+          "function": "debug_application",
+          "module": "werkzeug.debug",
+          "context": {
+            "pre": [
+              "        app_iter = None",
+              "        try:"
+            ],
+            "post": [
+              "            yield from app_iter",
+              "            if hasattr(app_iter, \"close\"):"
+            ]
+          },
+          "vars": {
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000241AC1CA480>",
+            "self": "<werkzeug.debug.DebuggedApplication object at 0x00000241AC131350>",
+            "environ": {
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.multiprocess": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+              "wsgi.input": "<_io.BufferedReader name=1160>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 333,
+            "context": "                for data in application_iter:"
+          },
+          "function": "execute",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "            application_iter = app(environ, start_response)",
+              "            try:"
+            ],
+            "post": [
+              "                    write(data)",
+              "                if not headers_sent:"
+            ]
+          },
+          "vars": {
+            "app": "<werkzeug.debug.DebuggedApplication object at 0x00000241AC131350>",
+            "application_iter": "<generator object DebuggedApplication.debug_application at 0x00000241AC1AC180>",
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000241AC1CA480>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x00000241ABC88E00>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "<truncated>": "(28 more elements)",
+              "wsgi.run_once": false,
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "wsgi.multithread": true,
+              "werkzeug.socket": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+              "wsgi.input": "<_io.BufferedReader name=1160>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 370,
+            "context": "            execute(self.server.app)"
+          },
+          "function": "run_wsgi",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "",
+              "        try:"
+            ],
+            "post": [
+              "        except connection_dropped_errors as e:",
+              "            self.connection_dropped(e, environ)"
+            ]
+          },
+          "vars": {
+            "chunk_response": false,
+            "start_response": "<function WSGIRequestHandler.run_wsgi.<locals>.start_response at 0x00000241AC1CA480>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>",
+            "write": "<function WSGIRequestHandler.run_wsgi.<locals>.write at 0x00000241ABC88E00>",
+            "execute": "<function WSGIRequestHandler.run_wsgi.<locals>.execute at 0x00000241AC1CA020>",
+            "environ": {
+              "wsgi.multiprocess": false,
+              "wsgi.version": [
+                1,
+                0
+              ],
+              "wsgi.run_once": false,
+              "<truncated>": "(28 more elements)",
+              "wsgi.url_scheme": "http",
+              "REQUEST_METHOD": "POST",
+              "werkzeug.socket": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+              "wsgi.multithread": true,
+              "wsgi.input": "<_io.BufferedReader name=1160>",
+              "SERVER_SOFTWARE": "Werkzeug/3.1.3",
+              "wsgi.errors": "<_io.TextIOWrapper name='<stderr>' mode='w' encoding='utf-8'>"
+            }
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 419,
+            "context": "            method()"
+          },
+          "function": "handle_one_request",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "                return",
+              "            method = getattr(self, mname)"
+            ],
+            "post": [
+              "            self.wfile.flush() #actually send the response if not already done.",
+              "        except TimeoutError as e:"
+            ]
+          },
+          "vars": {
+            "method": "<bound method WSGIRequestHandler.run_wsgi of <werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>",
+            "mname": "do_POST"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\http\\server.py",
+          "filename": "http\\server.py",
+          "line": {
+            "number": 431,
+            "context": "        self.handle_one_request()"
+          },
+          "function": "handle",
+          "module": "http.server",
+          "context": {
+            "pre": [
+              "        self.close_connection = True",
+              ""
+            ],
+            "post": [
+              "        while not self.close_connection:",
+              "            self.handle_one_request()"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\venv\\Lib\\site-packages\\werkzeug\\serving.py",
+          "filename": "werkzeug\\serving.py",
+          "line": {
+            "number": 398,
+            "context": "            super().handle()"
+          },
+          "function": "handle",
+          "module": "werkzeug.serving",
+          "context": {
+            "pre": [
+              "        \"\"\"Handles a request ignoring dropped connections.\"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except (ConnectionError, socket.timeout) as e:",
+              "            self.connection_dropped(e)"
+            ]
+          },
+          "vars": {
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>",
+            "__class__": "<class 'werkzeug.serving.WSGIRequestHandler'>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 755,
+            "context": "            self.handle()"
+          },
+          "function": "__init__",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        self.setup()",
+              "        try:"
+            ],
+            "post": [
+              "        finally:",
+              "            self.finish()"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+            "server": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000241AC06FF50>",
+            "self": "<werkzeug.serving.WSGIRequestHandler object at 0x00000241AC1D7990>",
+            "client_address": [
+              "127.0.0.1",
+              57013
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 361,
+            "context": "        self.RequestHandlerClass(request, client_address, self)"
+          },
+          "function": "finish_request",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "    def finish_request(self, request, client_address):",
+              "        \"\"\"Finish one request by instantiating RequestHandlerClass.\"\"\""
+            ],
+            "post": [
+              "",
+              "    def shutdown_request(self, request):"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000241AC06FF50>",
+            "client_address": [
+              "127.0.0.1",
+              57013
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\socketserver.py",
+          "filename": "Lib\\socketserver.py",
+          "line": {
+            "number": 691,
+            "context": "            self.finish_request(request, client_address)"
+          },
+          "function": "process_request_thread",
+          "module": "socketserver",
+          "context": {
+            "pre": [
+              "        \"\"\"",
+              "        try:"
+            ],
+            "post": [
+              "        except Exception:",
+              "            self.handle_error(request, client_address)"
+            ]
+          },
+          "vars": {
+            "request": "<socket.socket fd=1160, family=2, type=1, proto=0, laddr=('127.0.0.1', 5000), raddr=('127.0.0.1', 57013)>",
+            "self": "<werkzeug.serving.ThreadedWSGIServer object at 0x00000241AC06FF50>",
+            "client_address": [
+              "127.0.0.1",
+              57013
+            ]
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 975,
+            "context": "                self._target(*self._args, **self._kwargs)"
+          },
+          "function": "run",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        try:",
+              "            if self._target is not None:"
+            ],
+            "post": [
+              "        finally:",
+              "            # Avoid a refcycle if the thread is running a function with"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 34892)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 1038,
+            "context": "                self.run()"
+          },
+          "function": "_bootstrap_inner",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "",
+              "            try:"
+            ],
+            "post": [
+              "            except:",
+              "                self._invoke_excepthook(self)"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 34892)>"
+          }
+        },
+        {
+          "exclude_from_grouping": false,
+          "abs_path": "C:\\Users\\Ludvi\\Documents\\Bachelor Bravo\\Project Source\\backend\\Python311\\Lib\\threading.py",
+          "filename": "Lib\\threading.py",
+          "line": {
+            "number": 995,
+            "context": "            self._bootstrap_inner()"
+          },
+          "function": "_bootstrap",
+          "module": "threading",
+          "context": {
+            "pre": [
+              "        # if a non-daemonic encounters this, something else is wrong.",
+              "        try:"
+            ],
+            "post": [
+              "        except:",
+              "            if self._daemonic and _sys is None:"
+            ]
+          },
+          "vars": {
+            "self": "<Thread(Thread-3 (process_request_thread), started daemon 34892)>"
+          }
+        }
+      ],
+      "level": "info",
+      "logger_name": "__root__",
+      "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+      "param_message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True"
+    },
+    "custom": {
+      "success": true,
+      "ip": "127.0.0.1",
+      "email": "ludvigjuul@gmail.com"
+    },
+    "id": "1bd761ed6f67623cc57c48237463a370",
+    "grouping_key": "5ceaab8033f62154a581fec632631bdb"
+  },
+  "message": "Login attempt from 127.0.0.1 for ludvigjuul@gmail.com | Success: True",
+  "event": {
+    "ingested": "2025-04-01T11:19:12Z"
+  },
+  "timestamp": {
+    "us": 1743506343780468
+  },
+  "tags": [
+    "_geoip_database_unavailable_GeoLite2-City.mmdb"
+  ]
+}
+

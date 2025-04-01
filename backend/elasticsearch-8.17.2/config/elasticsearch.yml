@@ -89,7 +89,7 @@
 # --------------------------------------------------------------------------------
 
 # Enable security features
-# xpack.security.enabled: false
+xpack.security.enabled: false
 
 xpack.security.enrollment.enabled: true
 

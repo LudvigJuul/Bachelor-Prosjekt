@@ -6,10 +6,14 @@ apm-server:
   # Defines the host and port the server is listening on. Use "unix:/path/to.sock" to listen on a unix domain socket.
   host: "127.0.0.1:8200"
   enabled: true
+  
+  sampling:
+    keep_unsampled: true
+
 
  
   # Agent authorization configuration. If no methods are defined, all requests will be allowed.
-  #auth:
+  auth:
     # Agent authorization using Elasticsearch API Keys.
     #api_key:
       #enabled: false
@@ -19,7 +23,7 @@ apm-server:
       #limit: 100
 
     # Define a shared secret token for authorizing agents using the "Bearer" authorization method.
-    #secret_token: "123abc"
+    secret_token: "changeme"
 
     # Allow anonymous access only for specified agents and/or services. This is primarily intended to allow
     # limited access for untrusted agents, such as Real User Monitoring.

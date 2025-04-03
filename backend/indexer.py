@@ -8,7 +8,7 @@ import json
 import pyfiglet
 
 text = "Indexer"
-font = pyfiglet.Figlet(font="isometric1")
+font = pyfiglet.Figlet(font="isometric1") #isometric1
 
 # Render én og én bokstav
 rendered_letters = [font.renderText(char).splitlines() for char in text]
@@ -35,7 +35,7 @@ print("\n".join(output_lines))
 print("\n")
 print("=" * length)
 print("- " * int(length / 2))  
-print("\n")
+#print("\n")
 
 es = Elasticsearch("http://localhost:9200")
 

@@ -17,9 +17,9 @@ const allWidgets = [
 
 const initialLayout = [
   { i: "devices", x: 3, y: 0, w: 3, h: 3, static: false },
-  { i: "usage", x: 0, y: 0, w: 3, h: 3, static: false },
-  { i: "ai", x: 0, y: 0, w: 3, h: 4, static: false},
-  { i: "activity", x:6 , y: 0, w: 3, h: 3, static: false },
+  { i: "usage", x: 0, y: 0, w: 3, h: 4, static: false },
+  { i: "ai", x: 0, y: 0, w: 3, h: 5, static: false},
+  { i: "activity", x:6 , y: 0, w: 3, h: 4, static: false },
 ];
 
 const COLORS = ["#ffbae8", "#29f185", "#002250"];

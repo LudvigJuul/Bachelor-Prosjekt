@@ -152,7 +152,8 @@ class Device(db.Model):
 
 
 #@capture_span(span_type="auth", span_subtype="login")
-def log_login_attempt(ip_address, email, success):
+
+def log_login_attempt(ip_address, email, success, event):
     print("capture_span TRIGGERED")
 
     with capture_span(
@@ -161,11 +162,29 @@ def log_login_attempt(ip_address, email, success):
         span_subtype="login"
     ):
         apm.client.capture_message(
-            f"Login attempt from {ip_address} for {email} | Success: {success}",
-            extra={"ip": ip_address, "email": email, "success": success},
+            f"Login attempt from {ip_address} for {email} | Success: {success} | Event: {event}",
+            custom={ 
+                "ip": ip_address,
+                "email": email,
+                "success": success,
+                "event": event
+            },
             level="info"
         )
 
+
+
+def log_registration_attempt(ip_address, email, success=True):
+    apm.client.capture_message(
+        f"Registration attempt from {ip_address} for {email} | Success: {success}",
+        custom={
+            "event": "registration",
+            "ip": ip_address,
+            "email": email,
+            "success": success
+        },
+        level="info"
+    )
 
 
 
@@ -237,10 +256,8 @@ def uploaded_file(filename):
     return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
 
 @app.route("/api/signup", methods=["POST"])
+@app.route("/api/signup", methods=["POST"])
 def signup():
-    """Register a new user. Supports profile picture upload."""
-    
-    # Håndter filopplasting sikkert
     profile_pic = request.files.get("profilePic")
     filepath = None
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
@@ -251,7 +268,6 @@ def signup():
         filepath = os.path.join(UPLOAD_FOLDER, filename)
         profile_pic.save(filepath)
 
-    # Hent skjemadata
     name = request.form.get("name")
     email = request.form.get("email")
     password = request.form.get("password")
@@ -259,19 +275,22 @@ def signup():
     title = request.form.get("title")
     phone = request.form.get("phone")
 
-    # Valider obligatoriske felt
+    ip_address = request.remote_addr  # <- Legg til IP-uthenting
+
     if not name or not email or not password:
         return jsonify({"message": "Missing required fields"}), 400
 
     hashed_password = generate_password_hash(password, method="pbkdf2:sha256")
-    new_user = User(name=name, email=email, password_hash=hashed_password, 
+    new_user = User(name=name, email=email, password_hash=hashed_password,
                     company=company, title=title, phone=phone, profile_pic=filepath)
 
     try:
         db.session.add(new_user)
         db.session.commit()
+        log_registration_attempt(ip_address, email, success=True)  # <- SUKSESSLOGGING
     except IntegrityError:
         db.session.rollback()
+        log_registration_attempt(ip_address, email, success=False)  # <- FEILLOGGING
         return jsonify({"message": "Email already in use"}), 400
 
     return jsonify({"message": "User registered successfully!", "profile_pic": filepath}), 201
@@ -288,11 +307,14 @@ def login():
     
     ######################################################################################################
     password_matches = user and check_password_hash(user.password_hash, data["password"])
-    ip_address = request.remote_addr
+    #ip_address = request.remote_addr
+    ip_address = request.headers.get("X-Forwarded-For", "192.168.66.77") # <---- Hardkodet for å fabrikere falske innlogginger på lokal server!!!!!
     email = data.get("email")
 
     # Logg forsøket (suksess eller ikke)
-    log_login_attempt(ip_address, email, success=bool(password_matches))
+    log_login_attempt(ip_address, email, success=bool(password_matches), event="login")
+    
+
 
     ######################################################################################################
     

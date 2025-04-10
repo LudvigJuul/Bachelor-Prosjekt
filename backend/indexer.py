@@ -42,7 +42,7 @@ es = Elasticsearch("http://localhost:9200")
 query = {
     "query": {
         "query_string": {
-            "query": "login"
+            "query": "login OR registration"
         }
     },
     "size": 150
@@ -55,6 +55,8 @@ index_patterns = [
 
 def extract_custom_info(source):
     ip = email = success = "N/A"
+    
+    
 
     # 1. error.custom
     error_custom = source.get("error", {}).get("custom")
@@ -96,7 +98,7 @@ for index in index_patterns:
                     timestamp = f"Feil i konvertering: {e}"
             else:
                 timestamp = "N/A"
-
+            event = source.get("error", {}).get("custom", {}).get("event", "N/A")
             ip, email, success = extract_custom_info(source)
 
             parsed = {
@@ -106,7 +108,8 @@ for index in index_patterns:
                 "email": email,
                 "success": success,
                 "span_name": source.get("span", {}).get("name") or source.get("transaction", {}).get("name", "N/A"),
-                "outcome": source.get("event", {}).get("outcome", "N/A")
+                "outcome": source.get("event", {}).get("outcome", "N/A"),
+                "event": event
             }
 
             results.append(parsed)
@@ -117,7 +120,7 @@ df = pd.DataFrame(results)
 pd.set_option('display.max_columns', None)
 
 #Uncomment for å få csv fil
-#df.to_csv("login_logs.csv", index=False)
-#print("Lagret til login_logs.csv")
+df.to_csv("login_logs.csv", index=False)
+print("Lagret til login_logs.csv")
 
 print(df.to_string(index=False))

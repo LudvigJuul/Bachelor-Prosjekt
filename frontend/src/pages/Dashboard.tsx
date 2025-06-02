@@ -1,12 +1,15 @@
 
-import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
+import { PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid } from "recharts";
 import GridLayout from "react-grid-layout";
 import { useState, useEffect } from "react";
-import { X, Move, Scaling } from "lucide-react"; 
+import { X, Move, Scaling, HelpCircle } from "lucide-react"; 
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import { Layout as GridLayoutType } from "react-grid-layout"; 
 import LayoutComponent from "../components/Layout"; 
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
+
 
 const allWidgets = [
   { id: "devices", name: "Status Devices" },
@@ -99,7 +102,16 @@ function Dashboard() {
     <LayoutComponent>
       {/* Header text */}
       <div className="p-6">
-        <h1 className="text-[#002250] text-3xl font-weight: 900; font-medium font-sans mb-4">Dashboard</h1>
+      <div className="flex items-center gap-2 mb-4">
+        <h1 className="text-[#002250] text-3xl font-medium font-sans">Dashboard</h1>
+        <HelpCircle
+          data-tooltip-id="dashboard-help"
+          data-tooltip-content="Customize your dashboard by adding, removing, or rearranging widgets. Click and drag the icons in the corners to ajust them."
+          className="text-[#002250] hover:text-[#ff75d1] cursor-pointer"
+          size={22}
+        />
+        <Tooltip id="dashboard-help" place="right" />
+      </div>
 
         {/* Widget Meny */}
         <div className="mb-4 flex gap-2">

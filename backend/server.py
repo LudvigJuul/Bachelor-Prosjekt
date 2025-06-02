@@ -44,11 +44,9 @@ CORS(app,
 
 
 #Konfigurerer Elastic_Apm:
-
-
 app.config['ELASTIC_APM'] = {
     'SERVICE_NAME': 'flask-backend',
-    'SECRET_TOKEN': 'changeme',  # Må matche det som står i apm-server.yml
+    'SECRET_TOKEN': 'changeme',  # må matche det som står i apm-server.yml!!
     'SERVER_URL': 'http://127.0.0.1:8200',
     'ENVIRONMENT': 'development',
 }
@@ -59,10 +57,9 @@ app.config['ELASTIC_APM'] = {
 apm = ElasticAPM(app)
 
 
-# Use an environment variable for the secret key, with a fallback if not set
 app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "fallback-secret")
 
-# Configure SQLite database
+# Config for SQLite database
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///" + os.path.join(BASE_DIR, "database.db")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
@@ -222,9 +219,9 @@ def token_required(f):
 # ROUTES
 # -----------------------------------------------------------------------------
 
-@app.route("/api/test-error")
-def test_error():
-    raise Exception("Dette er en test for APM")
+# @app.route("/api/test-error")
+# def test_error():
+#     raise Exception("Dette er en test for APM")
 
 
 @app.route("/api/debug/users", methods=["GET"])
@@ -307,8 +304,8 @@ def login():
     
     ######################################################################################################
     password_matches = user and check_password_hash(user.password_hash, data["password"])
-    #ip_address = request.remote_addr
-    ip_address = request.headers.get("X-Forwarded-For", "192.168.66.77") # <---- Hardkodet for å fabrikere falske innlogginger på lokal server!!!!!
+    ip_address = request.remote_addr
+    #ip_address = request.headers.get("X-Forwarded-For", "192.168.66.77") # <---- Hardkodet for å fabrikere falske innlogginger på lokal server!!!!!
     email = data.get("email")
 
     # Logg forsøket (suksess eller ikke)
